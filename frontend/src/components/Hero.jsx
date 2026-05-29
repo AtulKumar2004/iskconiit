@@ -15,7 +15,7 @@ const slides = [
     primary: "Join Our Community",
     secondary: "Weekly Programs",
     image:
-      "../../prasadameating.png",
+      "/prasadameating.png",
     alt: "Students sharing a meal and laughing together",
   },
   {
@@ -26,7 +26,7 @@ const slides = [
     primary: "Explore Philosophy",
     secondary: "Visit Library",
     image:
-      "../../lib.png",
+      "/lib.png",
     alt: "Library shelves filled with books",
   },
   {
@@ -37,7 +37,7 @@ const slides = [
     primary: "Attend Classes",
     secondary: "Start Your Journey",
     image:
-      "../../guidance.png",
+      "/guidance.png",
     alt: "Teacher guiding students in a classroom",
   },
   {
@@ -48,7 +48,7 @@ const slides = [
     primary: "Explore Festivals",
     secondary: "Temple Programs",
     image:
-      "../../public/deities.png",
+      "/deities.png",
     alt: "Temple architecture glowing at dusk",
   },
   {
@@ -58,7 +58,7 @@ const slides = [
     subtitle: "Kirtan, meditation, community, inner happiness.",
     primary: "Join Kirtan",
     secondary: "Upcoming Events",
-    image: "../../public/kirtan-2.png",
+    image: "/kirtan-2.png",
     alt: "Crowd immersed in music and lights",
   },
   {
@@ -69,7 +69,7 @@ const slides = [
     primary: "Join Kirtan",
     secondary: "Upcoming Events",
     image:
-      "../../public/kirtan.png",
+      "/kirtan.png",
     alt: "Kirtan gathering with devotees singing together",
   },
 ];
