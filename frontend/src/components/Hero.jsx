@@ -124,7 +124,7 @@ const Hero = () => {
               <motion.img
                 src={slide.image}
                 alt={slide.alt}
-                className="absolute inset-0 h-full w-full object-cover"
+                className="absolute inset-0 z-0 h-full w-full object-cover"
                 loading={index === 0 ? "eager" : "lazy"}
                 decoding="async"
                 initial={{ scale: 1.04 }}
@@ -137,8 +137,8 @@ const Hero = () => {
                 }}
                 transition={{ duration: 7, ease: "easeOut" }}
               />
-              <div className="absolute inset-0 bg-gradient-to-b from-black/75 via-[#1a0d12]/70 to-[#12070c]/90" />
-              <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(212,175,55,0.18),_transparent_55%)]" />
+              <div className="absolute inset-0 z-10 bg-gradient-to-b from-black/75 via-[#1a0d12]/70 to-[#12070c]/90" />
+              <div className="absolute inset-0 z-20 bg-[radial-gradient(ellipse_at_top,_rgba(212,175,55,0.18),_transparent_55%)]" />
             </div>
           </SwiperSlide>
         ))}

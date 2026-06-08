@@ -2,14 +2,58 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { NavLink, useLocation } from "react-router-dom";
 
-const navItems = [
-  { label: "Darshan", href: "/" },
-  { label: "Philosophy", href: "/philosophy" },
-  { label: "Kirtan", href: "#" },
-  { label: "Prasadam", href: "#" },
-  { label: "Festivals", href: "#" },
-  { label: "Media", href: "/media" },
-  { label: "Donate", href: "/donate" },
+const outreachChildren = [
+  {
+    label: "Student",
+    href: "/outreach/student",
+    description: "Mentoring circles and study support for students.",
+    image: "/mentorship.png",
+  },
+  {
+    label: "Faculty",
+    href: "/outreach/faculty",
+    description: "Satsangs and talks on leadership and mindful living.",
+    image: "/faculty/F19.jpeg",
+  },
+  {
+    label: "Village",
+    href: "/outreach/village",
+    description: "Seva drives and prasadam distribution in villages.",
+    image: "/village/V3.jpeg",
+  },
+  {
+    label: "Corporate",
+    href: "/outreach/corporate",
+    description: "Workplace wellbeing and values workshops.",
+    image: "/corporate/P21.jpeg",
+  },
+];
+
+const desktopNavItems = [
+  { label: "Outreach", children: outreachChildren },
+  { label: "Programs", href: "#" },
+  {
+    label: "Services",
+    children: ["Restaurant", "House Programs"],
+  },
+  { label: "Calendar", href: "#" },
+  { label: "Become a Volunteer", href: "#" },
+  { label: "About", href: "/about" },
+  { label: "Contact", href: "#" },
+];
+
+const mobileNavItems = [
+  { label: "Outreach", children: outreachChildren },
+  { label: "Programs", href: "#" },
+  {
+    label: "Services",
+    children: ["Restaurant", "House Programs"],
+  },
+  { label: "About", href: "/about" },
+  { label: "Membership & Donations", href: "/donate" },
+  { label: "Calendar", href: "#" },
+  { label: "Transparency and Accountability", href: "#" },
+  { label: "Become a Volunteer", href: "#" },
   { label: "Contact", href: "#" },
 ];
 
@@ -46,12 +90,6 @@ const Navbar = () => {
     : isLight
       ? "text-[#4A1F2D]"
       : "text-white";
-
-  const ctaClass = scrolled
-    ? "border-[#D4AF37]/40 bg-white/10 text-white hover:-translate-y-0.5 hover:border-[#D4AF37]/80 hover:text-[#D4AF37] hover:shadow-[0_14px_30px_-20px_rgba(212,175,55,0.7)]"
-    : isLight
-      ? "border-[#D4AF37]/60 bg-white/70 text-[#4A1F2D] hover:-translate-y-0.5 hover:border-[#D4AF37] hover:shadow-[0_14px_30px_-20px_rgba(212,175,55,0.45)]"
-      : "border-[#D4AF37]/40 bg-white/10 text-white hover:-translate-y-0.5 hover:border-[#D4AF37]/80 hover:text-[#D4AF37] hover:shadow-[0_14px_30px_-20px_rgba(212,175,55,0.7)]";
 
   const menuButtonClass = scrolled
     ? "border-white/20 bg-white/10 text-white"
@@ -99,22 +137,21 @@ const Navbar = () => {
   const dropdownVariants = reduceMotion
     ? { hidden: { opacity: 0 }, visible: { opacity: 1 } }
     : {
-        hidden: { opacity: 0, y: 8 },
-        visible: {
-          opacity: 1,
-          y: 0,
-          transition: { duration: 0.2 },
-        },
-      };
+      hidden: { opacity: 0, y: 8 },
+      visible: {
+        opacity: 1,
+        y: 0,
+        transition: { duration: 0.2 },
+      },
+    };
 
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          scrolled
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled
             ? "border-b border-[#3a1421]/80 bg-[#4A1F2D]/85 shadow-[0_20px_60px_-30px_rgba(0,0,0,0.85)] backdrop-blur-xl"
             : "border-b border-transparent bg-transparent"
-        }`}
+          }`}
       >
         <div className="mx-auto flex items-center justify-between px-6 py-4 lg:px-12">
           <NavLink to="/" className="relative flex items-center gap-3" aria-label="Go to home">
@@ -139,85 +176,113 @@ const Navbar = () => {
 
           <nav className="hidden lg:block" aria-label="Primary">
             <ul className="flex items-center gap-6 text-[0.7rem] font-medium uppercase tracking-[0.2em]">
-              {navItems.map((item) => (
-                <li
-                  key={item.label}
-                  className="relative"
-                  onMouseEnter={() => item.children && setOpenDropdown(item.label)}
-                  onMouseLeave={() => item.children && setOpenDropdown(null)}
-                >
-                  {item.children ? (
-                    <button
-                      type="button"
-                      className={`group flex items-center gap-2 transition ${navInactive}`}
-                      aria-expanded={openDropdown === item.label}
-                      onFocus={() => setOpenDropdown(item.label)}
-                    >
-                      <span className="relative pb-1 after:absolute after:left-0 after:bottom-0 after:h-px after:w-0 after:bg-[#D4AF37] after:transition-all after:duration-300 group-hover:after:w-full">
-                        {item.label}
-                      </span>
-                      <span className="text-[#D4AF37]">v</span>
-                    </button>
-                  ) : item.href?.startsWith("/") ? (
-                    <NavLink
-                      to={item.href}
-                      className={({ isActive }) =>
-                        `relative pb-1 transition after:absolute after:left-0 after:bottom-0 after:h-px after:bg-[#D4AF37] after:transition-all after:duration-300 ${
-                          isActive
+              {desktopNavItems.map((item) => {
+                const hasDetailedChildren =
+                  Array.isArray(item.children) &&
+                  typeof item.children[0] === "object";
+
+                return (
+                  <li
+                    key={item.label}
+                    className="relative"
+                    onMouseEnter={() => item.children && setOpenDropdown(item.label)}
+                    onMouseLeave={() => item.children && setOpenDropdown(null)}
+                  >
+                    {item.children ? (
+                      <button
+                        type="button"
+                        className={`group flex items-center gap-2 uppercase transition ${navInactive}`}
+                        aria-expanded={openDropdown === item.label}
+                        onFocus={() => setOpenDropdown(item.label)}
+                      >
+                        <span className="relative pb-1 after:absolute after:left-0 after:bottom-0 after:h-px after:w-0 after:bg-[#D4AF37] after:transition-all after:duration-300 group-hover:after:w-full">
+                          {item.label}
+                        </span>
+                        <span className="text-[#D4AF37]">v</span>
+                      </button>
+                    ) : item.href?.startsWith("/") ? (
+                      <NavLink
+                        to={item.href}
+                        className={({ isActive }) =>
+                          `relative pb-1 transition after:absolute after:left-0 after:bottom-0 after:h-px after:bg-[#D4AF37] after:transition-all after:duration-300 ${isActive
                             ? `${navActive} after:w-full`
                             : `${navInactive} after:w-0 hover:after:w-full`
-                        }`
-                      }
-                    >
-                      {item.label}
-                    </NavLink>
-                  ) : (
-                    <a
-                      href={item.href}
-                      className={`relative pb-1 transition after:absolute after:left-0 after:bottom-0 after:h-px after:w-0 after:bg-[#D4AF37] after:transition-all after:duration-300 hover:after:w-full ${navInactive}`}
-                    >
-                      {item.label}
-                    </a>
-                  )}
-
-                  <AnimatePresence>
-                    {item.children && openDropdown === item.label && (
-                      <motion.div
-                        variants={dropdownVariants}
-                        initial="hidden"
-                        animate="visible"
-                        exit="hidden"
-                        className="absolute left-0 mt-4 w-56 rounded-2xl border border-white/10 bg-[#1b0f16]/90 p-4 shadow-[0_18px_40px_-24px_rgba(0,0,0,0.7)] backdrop-blur-xl"
+                          }`
+                        }
                       >
-                        <ul className="space-y-3 text-xs uppercase tracking-[0.2em] text-white/70">
-                          {item.children.map((child) => (
-                            <li key={child}>
-                              <a
-                                href="#"
-                                className="flex items-center justify-between transition hover:text-[#D4AF37]"
-                              >
-                                {child}
-                                <span className="h-px w-6 bg-[#D4AF37]/40" />
-                              </a>
-                            </li>
-                          ))}
-                        </ul>
-                      </motion.div>
+                        {item.label}
+                      </NavLink>
+                    ) : (
+                      <a
+                        href={item.href}
+                        className={`relative pb-1 transition after:absolute after:left-0 after:bottom-0 after:h-px after:w-0 after:bg-[#D4AF37] after:transition-all after:duration-300 hover:after:w-full ${navInactive}`}
+                      >
+                        {item.label}
+                      </a>
                     )}
-                  </AnimatePresence>
-                </li>
-              ))}
+
+                    <AnimatePresence>
+                      {item.children && openDropdown === item.label && (
+                        <motion.div
+                          variants={dropdownVariants}
+                          initial="hidden"
+                          animate="visible"
+                          exit="hidden"
+                          className={`absolute left-0 mt-4 rounded-2xl border border-white/10 bg-[#2a0f17]/95 p-5 shadow-[0_18px_40px_-24px_rgba(0,0,0,0.7)] backdrop-blur-2xl ${hasDetailedChildren ? "w-[520px]" : "w-56"
+                            }`}
+                        >
+                          {hasDetailedChildren ? (
+                            <div className="grid grid-cols-2 gap-4">
+                              {item.children.map((child) => (
+                                <a
+                                  key={child.label}
+                                  href={child.href ?? "#"}
+                                  className="flex items-start gap-4 rounded-xl bg-white/5 p-3 transition hover:bg-white/10"
+                                >
+                                  <img
+                                    src={child.image}
+                                    alt={child.label}
+                                    className="h-20 w-24 shrink-0 rounded-lg object-cover"
+                                    loading="lazy"
+                                    decoding="async"
+                                  />
+                                  <div>
+                                    <p className="text-[0.65rem] font-semibold normal-case tracking-[0.08em] text-[#D4AF37]">
+                                      {child.label}
+                                    </p>
+                                    <p className="mt-1 text-[0.7rem] normal-case leading-snug text-white/70">
+                                      {child.description}
+                                    </p>
+                                  </div>
+                                </a>
+                              ))}
+                            </div>
+                          ) : (
+                            <ul className="space-y-3 text-xs uppercase tracking-[0.2em] text-white/70">
+                              {item.children.map((child) => (
+                                <li key={child}>
+                                  <a
+                                    href="#"
+                                    className="flex items-center justify-between transition hover:text-[#D4AF37]"
+                                  >
+                                    {child}
+                                    <span className="h-px w-6 bg-[#D4AF37]/40" />
+                                    <span className="h-px w-6 bg-[#D4AF37]/40" />
+                                  </a>
+                                </li>
+                              ))}
+                            </ul>
+                          )}
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </li>
+                );
+              })}
             </ul>
           </nav>
 
           <div className="flex items-center gap-3">
-            <button
-              type="button"
-              className={`hidden items-center justify-center rounded-full border px-5 py-2 text-[0.65rem] font-semibold uppercase tracking-[0.3em] transition lg:inline-flex ${ctaClass}`}
-            >
-              Weekly Programs
-            </button>
-
             <button
               type="button"
               className={`relative inline-flex h-10 w-10 items-center justify-center rounded-full border transition lg:hidden ${menuButtonClass}`}
@@ -268,7 +333,7 @@ const Navbar = () => {
               </div>
 
               <div className="mt-8 space-y-4 text-sm uppercase tracking-[0.25em] text-white/80">
-                {navItems.map((item) => (
+                {mobileNavItems.map((item) => (
                   <div key={item.label} className="border-b border-white/10 pb-4">
                     {item.children ? (
                       <button
@@ -284,8 +349,7 @@ const Navbar = () => {
                       <NavLink
                         to={item.href}
                         className={({ isActive }) =>
-                          `block transition ${
-                            isActive ? "text-[#D4AF37]" : "text-white/80"
+                          `block transition ${isActive ? "text-[#D4AF37]" : "text-white/80"
                           }`
                         }
                         onClick={() => setMobileOpen(false)}
@@ -310,29 +374,29 @@ const Navbar = () => {
                           exit={{ height: 0, opacity: 0 }}
                           className="mt-3 space-y-3 overflow-hidden pl-3 text-[0.7rem] uppercase tracking-[0.2em] text-white/70"
                         >
-                          {item.children.map((child) => (
-                            <a
-                              key={child}
-                              href="#"
-                              className="block hover:text-[#D4AF37]"
-                              onClick={() => setMobileOpen(false)}
-                            >
-                              {child}
-                            </a>
-                          ))}
+                          {item.children.map((child) => {
+                            const label =
+                              typeof child === "string" ? child : child.label;
+                            const href =
+                              typeof child === "string" ? "#" : child.href ?? "#";
+
+                            return (
+                              <a
+                                key={label}
+                                href={href}
+                                className="block hover:text-[#D4AF37]"
+                                onClick={() => setMobileOpen(false)}
+                              >
+                                {label}
+                              </a>
+                            );
+                          })}
                         </motion.div>
                       )}
                     </AnimatePresence>
                   </div>
                 ))}
               </div>
-
-              <button
-                type="button"
-                className="mt-6 w-full rounded-full border border-[#D4AF37]/60 bg-white/10 px-6 py-3 text-xs font-semibold uppercase tracking-[0.3em] text-white"
-              >
-                Weekly Programs
-              </button>
             </motion.div>
           </motion.div>
         )}
