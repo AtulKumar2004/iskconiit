@@ -31,7 +31,7 @@ const outreachChildren = [
 
 const desktopNavItems = [
   { label: "Outreach", children: outreachChildren },
-  { label: "Programs", href: "#" },
+  { label: "Programs", href: "/programs" },
   {
     label: "Services",
     children: ["Restaurant", "House Programs"],
@@ -39,12 +39,12 @@ const desktopNavItems = [
   { label: "Calendar", href: "#" },
   { label: "Become a Volunteer", href: "#" },
   { label: "About", href: "/about" },
-  { label: "Contact", href: "#" },
+  { label: "Contact", href: "/contact" },
 ];
 
 const mobileNavItems = [
   { label: "Outreach", children: outreachChildren },
-  { label: "Programs", href: "#" },
+  { label: "Programs", href: "/programs" },
   {
     label: "Services",
     children: ["Restaurant", "House Programs"],
@@ -54,7 +54,7 @@ const mobileNavItems = [
   { label: "Calendar", href: "#" },
   { label: "Transparency and Accountability", href: "#" },
   { label: "Become a Volunteer", href: "#" },
-  { label: "Contact", href: "#" },
+  { label: "Contact", href: "/contact" },
 ];
 
 const Navbar = () => {

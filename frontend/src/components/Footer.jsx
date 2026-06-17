@@ -1,14 +1,14 @@
 import { motion, useReducedMotion } from "framer-motion";
 
 const quickLinks = [
-  "Home",
-  "About",
-  "Programs",
-  "Events",
-  "Gallery",
-  "Outreach",
-  "Donate",
-  "Contact",
+  { label: "Home", href: "/" },
+  { label: "Outreach", href: "/outreach/student" },
+  { label: "Programs", href: "/programs" },
+  { label: "Services", href: "#" },
+  { label: "Calendar", href: "#" },
+  { label: "Become a Volunteer", href: "#" },
+  { label: "About", href: "/about" },
+  { label: "Contact", href: "/contact" },
 ];
 
 const timings = [
@@ -20,10 +20,9 @@ const timings = [
   { label: "Shayan Arati", time: "08:15 PM" },
 ];
 const socialLinks = [
-  { name: "Instagram", href: "#", icon: "instagram" },
-  { name: "YouTube", href: "#", icon: "youtube" },
-  { name: "Facebook", href: "#", icon: "facebook" },
-  { name: "Telegram", href: "#", icon: "telegram" },
+  { name: "Instagram", href: "https://www.instagram.com/iskcon__iit_centre?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==", icon: "instagram" },
+  { name: "YouTube", href: "https://www.youtube.com/@ISKCONBhubaneswarOfficial/featured", icon: "youtube" },
+  { name: "Facebook", href: "https://www.facebook.com/ISKCONBhubaneswar", icon: "facebook" },
 ];
 
 const icons = {
@@ -255,13 +254,13 @@ const Footer = () => {
               <h4 className="font-display text-lg">Quick Links</h4>
               <ul className="mt-5 space-y-3 text-sm text-white/70">
                 {quickLinks.map((link) => (
-                  <li key={link}>
+                  <li key={link.label}>
                     <a
-                      href="#"
+                      href={link.href}
                       className="group inline-flex items-center gap-2 transition hover:text-[#D4AF37]"
                     >
                       <span className="h-px w-0 bg-[#D4AF37] transition-all duration-300 group-hover:w-4" />
-                      {link}
+                      {link.label}
                     </a>
                   </li>
                 ))}
@@ -290,8 +289,8 @@ const Footer = () => {
                 </div>
                 <div className="flex items-center gap-3">
                   {icons.mail}
-                  <a href="mailto:contact@iskconiitbbsr.org" className="hover:text-[#D4AF37]">
-                    contact@iskconiitbbsr.org
+                  <a href="mailto:tukaramdas.bcs@gmail.com" className="hover:text-[#D4AF37]">
+                    tukaramdas.bcs@gmail.com
                   </a>
                 </div>
               </div>
