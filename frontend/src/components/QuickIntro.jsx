@@ -1,4 +1,5 @@
 import { motion, useReducedMotion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const collageImages = [
   {
@@ -117,22 +118,26 @@ const QuickIntro = () => {
             variants={itemVariants}
             className="mt-8 flex flex-col gap-4 sm:flex-row"
           >
-            <motion.button
-              type="button"
-              className="inline-flex items-center justify-center rounded-full bg-[#D4AF37] px-7 py-3 text-sm font-semibold uppercase tracking-[0.25em] text-[#4A1F2D] shadow-[0_18px_40px_-22px_rgba(212,175,55,0.8)]"
-              whileHover={reduceMotion ? {} : { scale: 1.03 }}
-              transition={{ duration: 0.3 }}
-            >
-              Explore Programs
-            </motion.button>
-            <motion.button
-              type="button"
-              className="inline-flex items-center justify-center rounded-full border border-[#4A1F2D]/25 bg-white px-7 py-3 text-sm font-semibold uppercase tracking-[0.25em] text-[#4A1F2D]"
-              whileHover={reduceMotion ? {} : { scale: 1.03 }}
-              transition={{ duration: 0.3 }}
-            >
-              Join Community
-            </motion.button>
+            <Link to="/programs">
+              <motion.button
+                type="button"
+                className="w-full sm:w-auto inline-flex items-center justify-center rounded-full bg-[#D4AF37] px-7 py-3 text-sm font-semibold uppercase tracking-[0.25em] text-[#4A1F2D] shadow-[0_18px_40px_-22px_rgba(212,175,55,0.8)]"
+                whileHover={reduceMotion ? {} : { scale: 1.03 }}
+                transition={{ duration: 0.3 }}
+              >
+                Explore Programs
+              </motion.button>
+            </Link>
+            <Link to="/contact">
+              <motion.button
+                type="button"
+                className="w-full sm:w-auto inline-flex items-center justify-center rounded-full border border-[#4A1F2D]/25 bg-white px-7 py-3 text-sm font-semibold uppercase tracking-[0.25em] text-[#4A1F2D]"
+                whileHover={reduceMotion ? {} : { scale: 1.03 }}
+                transition={{ duration: 0.3 }}
+              >
+                Join Community
+              </motion.button>
+            </Link>
           </motion.div>
         </motion.div>
       </div>

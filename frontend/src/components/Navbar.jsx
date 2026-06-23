@@ -34,7 +34,10 @@ const desktopNavItems = [
   { label: "Programs", href: "/programs" },
   {
     label: "Services",
-    children: ["Restaurant", "House Programs"],
+    children: [
+      { label: "Restaurant", href: "/govindas" },
+      { label: "House Programs", href: "#" },
+    ],
   },
   { label: "Calendar", href: "#" },
   { label: "Become a Volunteer", href: "#" },
@@ -47,7 +50,10 @@ const mobileNavItems = [
   { label: "Programs", href: "/programs" },
   {
     label: "Services",
-    children: ["Restaurant", "House Programs"],
+    children: [
+      { label: "Restaurant", href: "/govindas" },
+      { label: "House Programs", href: "#" },
+    ],
   },
   { label: "About", href: "/about" },
   { label: "Membership & Donations", href: "/donate" },
@@ -179,7 +185,8 @@ const Navbar = () => {
               {desktopNavItems.map((item) => {
                 const hasDetailedChildren =
                   Array.isArray(item.children) &&
-                  typeof item.children[0] === "object";
+                  typeof item.children[0] === "object" &&
+                  "image" in item.children[0];
 
                 return (
                   <li
@@ -259,18 +266,22 @@ const Navbar = () => {
                             </div>
                           ) : (
                             <ul className="space-y-3 text-xs uppercase tracking-[0.2em] text-white/70">
-                              {item.children.map((child) => (
-                                <li key={child}>
-                                  <a
-                                    href="#"
+                              {item.children.map((child) => {
+                                const label = typeof child === "string" ? child : child.label;
+                                const href = typeof child === "string" ? "#" : child.href ?? "#";
+                                return (
+                                <li key={label}>
+                                  <NavLink
+                                    to={href}
                                     className="flex items-center justify-between transition hover:text-[#D4AF37]"
                                   >
-                                    {child}
+                                    {label}
                                     <span className="h-px w-6 bg-[#D4AF37]/40" />
                                     <span className="h-px w-6 bg-[#D4AF37]/40" />
-                                  </a>
+                                  </NavLink>
                                 </li>
-                              ))}
+                                );
+                              })}
                             </ul>
                           )}
                         </motion.div>
@@ -381,14 +392,14 @@ const Navbar = () => {
                               typeof child === "string" ? "#" : child.href ?? "#";
 
                             return (
-                              <a
+                              <NavLink
                                 key={label}
-                                href={href}
+                                to={href}
                                 className="block hover:text-[#D4AF37]"
                                 onClick={() => setMobileOpen(false)}
                               >
                                 {label}
-                              </a>
+                              </NavLink>
                             );
                           })}
                         </motion.div>

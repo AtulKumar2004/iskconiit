@@ -1,6 +1,7 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
+import { Link } from "react-router-dom";
 import "swiper/css";
 import "swiper/css/pagination";
 
@@ -177,14 +178,16 @@ const StudentTestimonials = () => {
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
         >
-          <motion.button
-            type="button"
-            className="inline-flex items-center justify-center rounded-full bg-[#D4AF37] px-8 py-3 text-sm font-semibold uppercase tracking-[0.3em] text-[#4A1F2D] shadow-[0_18px_40px_-22px_rgba(212,175,55,0.8)]"
-            whileHover={reduceMotion ? {} : { scale: 1.03 }}
-            transition={{ duration: 0.3 }}
-          >
-            Join the Community
-          </motion.button>
+          <Link to="/contact">
+            <motion.button
+              type="button"
+              className="inline-flex items-center justify-center rounded-full bg-[#D4AF37] px-8 py-3 text-sm font-semibold uppercase tracking-[0.3em] text-[#4A1F2D] shadow-[0_18px_40px_-22px_rgba(212,175,55,0.8)]"
+              whileHover={reduceMotion ? {} : { scale: 1.03 }}
+              transition={{ duration: 0.3 }}
+            >
+              Join the Community
+            </motion.button>
+          </Link>
         </motion.div>
       </div>
     </section>

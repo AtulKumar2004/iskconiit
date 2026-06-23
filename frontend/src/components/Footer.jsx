@@ -1,10 +1,10 @@
 import { motion, useReducedMotion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const quickLinks = [
   { label: "Home", href: "/" },
   { label: "Outreach", href: "/outreach/student" },
   { label: "Programs", href: "/programs" },
-  { label: "Services", href: "#" },
   { label: "Calendar", href: "#" },
   { label: "Become a Volunteer", href: "#" },
   { label: "About", href: "/about" },
@@ -186,18 +186,22 @@ const Footer = () => {
               meaningful growth.
             </p>
             <div className="mt-6 flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <button
-                type="button"
-                className="inline-flex items-center justify-center rounded-full bg-[#D4AF37] px-6 py-3 text-xs font-semibold uppercase tracking-[0.3em] text-[#4A1F2D] shadow-[0_18px_40px_-22px_rgba(212,175,55,0.8)] transition hover:-translate-y-0.5"
-              >
-                Join Community
-              </button>
-              <button
-                type="button"
-                className="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/5 px-6 py-3 text-xs font-semibold uppercase tracking-[0.3em] text-white transition hover:border-[#D4AF37]/60 hover:text-[#D4AF37]"
-              >
-                Explore Programs
-              </button>
+              <Link to="/contact">
+                <button
+                  type="button"
+                  className="w-full sm:w-auto inline-flex items-center justify-center rounded-full bg-[#D4AF37] px-6 py-3 text-xs font-semibold uppercase tracking-[0.3em] text-[#4A1F2D] shadow-[0_18px_40px_-22px_rgba(212,175,55,0.8)] transition hover:-translate-y-0.5"
+                >
+                  Join Community
+                </button>
+              </Link>
+              <Link to="/programs">
+                <button
+                  type="button"
+                  className="w-full sm:w-auto inline-flex items-center justify-center rounded-full border border-white/20 bg-white/5 px-6 py-3 text-xs font-semibold uppercase tracking-[0.3em] text-white transition hover:border-[#D4AF37]/60 hover:text-[#D4AF37]"
+                >
+                  Explore Programs
+                </button>
+              </Link>
             </div>
           </motion.div>
         </motion.div>
@@ -285,12 +289,12 @@ const Footer = () => {
                 </div>
                 <div className="flex items-center gap-3">
                   {icons.phone}
-                  <span>+91 63705 07337</span>
+                  <span>8895400410</span>
                 </div>
                 <div className="flex items-center gap-3">
                   {icons.mail}
-                  <a href="mailto:tukaramdas.bcs@gmail.com" className="hover:text-[#D4AF37]">
-                    tukaramdas.bcs@gmail.com
+                  <a href="mailto:iskconiitcenterbbsr@gmail.com" className="hover:text-[#D4AF37]">
+                    iskconiitcenterbbsr@gmail.com
                   </a>
                 </div>
               </div>

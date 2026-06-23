@@ -3,9 +3,9 @@ import { motion, useInView, AnimatePresence, useReducedMotion } from "framer-mot
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import Masonry from "react-masonry-css";
-import { 
-  Calendar, ChevronDown, ChevronRight, Clock, MapPin, 
-  Users, Heart, BookOpen, Music, Home as HomeIcon, Star, 
+import {
+  Calendar, ChevronDown, ChevronRight, Clock, MapPin,
+  Users, Heart, BookOpen, Music, Home as HomeIcon, Star,
   ArrowRight, Sparkles, Quote
 } from "lucide-react";
 
@@ -32,14 +32,14 @@ const featuredPrograms = [
     icon: <Users className="w-6 h-6" />
   },
   {
-    title: "Bhagavad-gita Classes",
-    description: "Systematic study of Bhagavad-gita and practical application.",
+    title: "Srimad Bhagavatam Classes",
+    description: "Daily discussions on timeless spiritual wisdom.",
     image: "/bgclass.png",
     icon: <BookOpen className="w-6 h-6" />
   },
   {
-    title: "Srimad Bhagavatam Classes",
-    description: "Daily discussions on timeless spiritual wisdom.",
+    title: "Srimad Bhagavad Gita Classes",
+    description: "Systematic study of Bhagavad-gita and practical application.",
     image: "/guidance.png",
     icon: <BookOpen className="w-6 h-6" />
   },
@@ -313,9 +313,9 @@ const FeaturedSection = () => (
   <section className="relative overflow-hidden bg-[#F8F5EF] py-20">
     <SectionOrbs />
     <div className="relative mx-auto max-w-6xl px-6 lg:px-12">
-      <SectionHeader 
+      <SectionHeader
         eyebrow="Featured"
-        title="Featured Programs" 
+        title="Featured Programs"
         description="Explore our core offerings designed to bring you closer to spiritual perfection."
         align="center"
       />
@@ -331,9 +331,9 @@ const FeaturedSection = () => (
           >
             <div className="h-48 overflow-hidden relative">
               <div className="absolute inset-0 bg-[#4A1F2D]/10 group-hover:bg-transparent transition-colors z-10" />
-              <img 
-                src={program.image} 
-                alt={program.title} 
+              <img
+                src={program.image}
+                alt={program.title}
                 className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
               />
               <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm p-2 rounded-full z-20 text-[#D4AF37] shadow-sm">
@@ -342,10 +342,7 @@ const FeaturedSection = () => (
             </div>
             <div className="p-6">
               <h3 className="text-lg font-display font-semibold text-[#2a1b22] mb-2">{program.title}</h3>
-              <p className="text-sm text-[#4b4246] mb-5">{program.description}</p>
-              <a href="#join" className="inline-flex items-center text-xs font-semibold uppercase tracking-[0.2em] text-[#D4AF37] hover:text-[#4A1F2D] transition-colors group/link">
-                Learn More <ArrowRight className="ml-2 w-4 h-4 transform group-hover/link:translate-x-1 transition-transform" />
-              </a>
+              <p className="text-sm text-[#4b4246] mb-2">{program.description}</p>
             </div>
           </motion.div>
         ))}
@@ -359,9 +356,9 @@ const AudienceSection = () => (
   <section className="relative overflow-hidden bg-[#1f1117] py-20 text-white">
     <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(255,255,255,0.1),_transparent_60%)]" />
     <div className="relative mx-auto max-w-6xl px-6 lg:px-12 z-10">
-      <SectionHeader 
+      <SectionHeader
         eyebrow="By Audience"
-        title="Programs by Audience" 
+        title="Programs by Audience"
         description="Tailored spiritual experiences for every stage of life."
         align="center"
         isDark={true}
@@ -378,7 +375,7 @@ const AudienceSection = () => (
           >
             <img src={aud.image} alt={aud.category} className="absolute inset-0 h-full w-full object-cover transition duration-700 ease-out group-hover:scale-105" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/10 transition duration-500 group-hover:from-black/95" />
-            
+
             <div className="relative z-10 p-6 sm:p-7">
               <h3 className="text-2xl font-display font-semibold text-[#D4AF37] mb-4">{aud.category}</h3>
               <ul className="space-y-2">
@@ -397,20 +394,20 @@ const AudienceSection = () => (
   </section>
 );
 
-// 5. Weekly Schedule
+// 5. Common Schedule
 const ScheduleSection = () => (
   <section id="schedule" className="relative overflow-hidden bg-[#F8F5EF] py-20">
     <SectionOrbs />
     <div className="relative mx-auto max-w-4xl px-6 lg:px-12">
-      <SectionHeader 
+      <SectionHeader
         eyebrow="Timetable"
-        title="Weekly Schedule" 
-        description="Join us for our regular weekly gatherings." 
+        title="Common Schedule"
+        description="Join us for our regular gatherings."
         align="center"
       />
       <div className="rounded-3xl border border-white/60 bg-white/80 p-6 shadow-[0_20px_50px_-32px_rgba(31,23,28,0.45)] backdrop-blur-xl">
         {weeklySchedule.map((item, idx) => (
-          <motion.div 
+          <motion.div
             key={idx}
             initial={{ opacity: 0, x: -10 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -442,14 +439,14 @@ const AnnualEventsSection = () => (
     <SectionOrbs />
     <div className="relative mx-auto max-w-6xl px-6 lg:px-12">
       <div className="flex flex-col items-center mb-12">
-        <SectionHeader 
+        <SectionHeader
           eyebrow="Festivals"
-          title="Annual Signature Events" 
-          description="Grand festivals celebrating devotion and culture." 
+          title="Annual Signature Events"
+          description="Grand festivals celebrating devotion and culture."
           align="center"
         />
       </div>
-      
+
       <Swiper
         modules={[Autoplay, Pagination, Navigation]}
         spaceBetween={24}
@@ -492,15 +489,15 @@ const YatraSection = () => (
   <section className="relative overflow-hidden bg-[#F8F5EF] py-20">
     <SectionOrbs />
     <div className="relative mx-auto max-w-6xl px-6 lg:px-12">
-      <SectionHeader 
+      <SectionHeader
         eyebrow="Journeys"
-        title="Pilgrimages & Retreats" 
-        description="Journey to holy places and rejuvenate your spirit." 
+        title="Pilgrimages & Retreats"
+        description="Journey to holy places and rejuvenate your spirit."
       />
-      
+
       <div className="flex overflow-x-auto pb-8 space-x-6 hide-scrollbar snap-x snap-mandatory pt-4">
         {yatras.map((yatra, idx) => (
-          <motion.article 
+          <motion.article
             key={idx}
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -537,13 +534,13 @@ const GallerySection = () => {
     <section className="relative overflow-hidden bg-[#F8F5EF] py-20">
       <SectionOrbs />
       <div className="relative mx-auto max-w-6xl px-6 lg:px-12">
-        <SectionHeader 
+        <SectionHeader
           eyebrow="Gallery"
-          title="Moments of Devotion" 
-          description="Glimpses from our vibrant community programs." 
+          title="Moments of Devotion"
+          description="Glimpses from our vibrant community programs."
           align="center"
         />
-        
+
         <Masonry
           breakpointCols={breakpointColumnsObj}
           className="flex w-auto -ml-6 mt-10"
@@ -579,7 +576,7 @@ const TestimonialSection = () => (
           What Our Community Says
         </h2>
       </div>
-      
+
       <Swiper
         modules={[Autoplay, Pagination]}
         spaceBetween={30}
@@ -612,15 +609,15 @@ const UpcomingSection = () => (
   <section className="relative overflow-hidden bg-[#F8F5EF] py-20">
     <SectionOrbs />
     <div className="relative mx-auto max-w-5xl px-6 lg:px-12">
-      <SectionHeader 
+      <SectionHeader
         eyebrow="Register"
-        title="Upcoming Programs" 
-        description="Don't miss out on these special events." 
+        title="Upcoming Programs"
+        description="Don't miss out on these special events."
       />
-      
+
       <div className="space-y-4 mt-8">
         {upcomingPrograms.map((prog, idx) => (
-          <motion.div 
+          <motion.div
             key={idx}
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -659,17 +656,17 @@ const FAQSection = () => {
       <SectionOrbs />
       <div className="relative mx-auto max-w-3xl px-6 lg:px-12">
         <SectionHeader eyebrow="FAQ" title="Frequently Asked Questions" align="center" />
-        
+
         <div className="space-y-4 mt-10">
           {faqs.map((faq, idx) => (
-            <motion.div 
+            <motion.div
               key={idx}
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               className="rounded-2xl border border-white/70 bg-white/80 p-5 backdrop-blur-xl transition duration-300 hover:border-[#D4AF37]/40 shadow-sm"
             >
-              <button 
+              <button
                 onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
                 className="flex w-full items-center justify-between text-left focus:outline-none"
                 aria-expanded={openIndex === idx}
@@ -706,7 +703,7 @@ const JoinUsSection = () => (
     <div className="absolute inset-0 bg-[#0c1a2e]">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(212,175,55,0.15),_transparent_60%)]" />
     </div>
-    
+
     <div className="relative z-10 mx-auto max-w-4xl px-6 lg:px-12">
       <motion.div
         initial={{ opacity: 0, y: 20 }}

@@ -74,9 +74,9 @@ const InfoCards = () => (
   <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4 mb-20">
     {[
       { icon: MapPin, title: "Visit Us", info: "ISKCON IIT Centre\nBhubaneswar, Odisha" },
-      { icon: Phone, title: "Phone", info: "+91 98765 43210\n+91 91234 56789" },
-      { icon: Mail, title: "Email", info: "contact@iskconiitbbsr.org\ninfo@iskconiitbbsr.org" },
-      { icon: Clock, title: "Timings", info: "Temple: 4:30 AM - 9:00 PM\nOffice: 10:00 AM - 6:00 PM" }
+      { icon: Phone, title: "Phone", info: "+91 88954 00410\n+91 63705 07337" },
+      { icon: Mail, title: "Email", info: "tukaramdas.bcs@gmail.com\niskconiitcenterbbsr@gmail.com" },
+      { icon: Clock, title: "Darshan Timings", info: "4:30 AM - 3:00 PM\n4:00 PM - 9:00 PM" }
     ].map((item, idx) => (
       <motion.div key={idx} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: idx * 0.1 }} className="bg-white/80 border border-white/60 p-6 rounded-2xl shadow-[0_15px_40px_-20px_rgba(31,23,28,0.2)] backdrop-blur-md text-center hover:-translate-y-1 transition duration-300 hover:border-[#D4AF37]/50">
         <div className="w-12 h-12 mx-auto bg-[#D4AF37]/10 rounded-full flex items-center justify-center text-[#D4AF37] mb-4">

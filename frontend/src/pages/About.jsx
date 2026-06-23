@@ -62,7 +62,7 @@ const sections = [
     eyebrow: "Bhakti in Brief",
     title: "The Nectar of Devotion",
     paragraphs: [
-      "Bhakti means devotional service. Every person in this world is serving something, driven by affection and the taste it provides. A family man serves for his loved ones, a philanthropist serves for humanity, and a nationalist serves for the nation. This driving taste is called rasa. Material rasa is sweet for a moment but quickly fades, so we keep changing roles and chasing new forms of enjoyment. This cycle of taking and renouncing is known as bhoga-tyaga. The happiness that comes from sense gratification is capala-sukha, flickering and unstable, and it never satisfies the soul for long.",
+      "Bhakti means devotional service. Every person in this world is serving something, driven by affection and the taste it provides. A family man serves for humanity, a philanthropist serves for humanity, and a nationalist serves for the nation. This driving taste is called rasa. Material rasa is sweet for a moment but quickly fades, so we keep changing roles and chasing new forms of enjoyment. This cycle of taking and renouncing is known as bhoga-tyaga. The happiness that comes from sense gratification is capala-sukha, flickering and unstable, and it never satisfies the soul for long.",
       "Material achievements and roles end with the body. In any field of activity, the results of our actions are finished at death. Bhakti-rasa, however, is amrita, a taste that does not die. Bhagavad-gita teaches that even a little advancement in devotional service saves one from the greatest danger of wasting this human life. The law of destiny, or daiva, awards the next body from 8,400,000 forms according to our present actions. When our life is engaged in Krishna consciousness, the future becomes auspicious, and the path continues instead of being reset by loss and confusion.",
       "Devotional service is not a forced rejection of life; it is a positive, loving engagement with the Supreme. As the heart is purified, the senses become fit to serve, and service becomes natural and joyful. Under the guidance of the acarya, devotion matures from regulated practice to spontaneous eagerness. The many rasas of devotion unfold, and the soul tastes a steady joy that does not depend on changing circumstances. This is why bhakti is described as eternal and complete.",
       "Every living being has a natural propensity to love. The missing point is where to place that love so that it brings harmony rather than frustration. Bhakti teaches that Krishna is the supreme beloved. When love is offered to Krishna, love for family, society, and all beings becomes purified and balanced. It is like watering the root of a tree: the nourishment goes to every leaf and branch. In the same way, when the heart is connected to Krishna, all relationships are strengthened in the right spirit.",
@@ -94,23 +94,23 @@ const About = () => {
   const containerVariants = reduceMotion
     ? { hidden: { opacity: 0 }, visible: { opacity: 1 } }
     : {
-        hidden: { opacity: 0 },
-        visible: {
-          opacity: 1,
-          transition: { staggerChildren: 0.12 },
-        },
-      };
+      hidden: { opacity: 0 },
+      visible: {
+        opacity: 1,
+        transition: { staggerChildren: 0.12 },
+      },
+    };
 
   const itemVariants = reduceMotion
     ? { hidden: { opacity: 0 }, visible: { opacity: 1 } }
     : {
-        hidden: { opacity: 0, y: 22 },
-        visible: {
-          opacity: 1,
-          y: 0,
-          transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] },
-        },
-      };
+      hidden: { opacity: 0, y: 22 },
+      visible: {
+        opacity: 1,
+        y: 0,
+        transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] },
+      },
+    };
 
   return (
     <main className="bg-[#F8F5EF] text-[#241d20]">
@@ -178,9 +178,8 @@ const About = () => {
                 </div>
               ) : hasImage ? (
                 <div
-                  className={`grid items-center gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] ${
-                    isReversed ? "lg:[&>*:first-child]:order-2" : ""
-                  }`}
+                  className={`grid items-center gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] ${isReversed ? "lg:[&>*:first-child]:order-2" : ""
+                    }`}
                 >
                   <motion.div
                     variants={itemVariants}
@@ -190,9 +189,8 @@ const About = () => {
                       <motion.div variants={itemVariants} className="h-px w-12 bg-[#D4AF37]/70" />
                     )}
                     <p
-                      className={`text-xs font-semibold uppercase tracking-[0.35em] ${
-                        isSublime ? "text-[#4A1F2D]/70" : "text-[#D4AF37]"
-                      }`}
+                      className={`text-xs font-semibold uppercase tracking-[0.35em] ${isSublime ? "text-[#4A1F2D]/70" : "text-[#D4AF37]"
+                        }`}
                     >
                       {section.eyebrow}
                     </p>
@@ -253,17 +251,15 @@ const About = () => {
                 <div className="mx-auto max-w-4xl text-left">
                   <motion.p
                     variants={itemVariants}
-                    className={`text-xs font-semibold uppercase tracking-[0.35em] text-[#D4AF37] ${
-                      centerHeadings ? "text-center" : ""
-                    }`}
+                    className={`text-xs font-semibold uppercase tracking-[0.35em] text-[#D4AF37] ${centerHeadings ? "text-center" : ""
+                      }`}
                   >
                     {section.eyebrow}
                   </motion.p>
                   <motion.h2
                     variants={itemVariants}
-                    className={`mt-4 font-display text-3xl font-semibold text-[#2a1b22] sm:text-4xl ${
-                      centerHeadings ? "text-center" : ""
-                    }`}
+                    className={`mt-4 font-display text-3xl font-semibold text-[#2a1b22] sm:text-4xl ${centerHeadings ? "text-center" : ""
+                      }`}
                   >
                     <span className="heading-highlight">{section.title}</span>
                   </motion.h2>
@@ -302,6 +298,95 @@ const About = () => {
           );
         })}
       </div>
+
+      {/* Prabhupada Full Width Image */}
+      <section className="relative w-full">
+        <img src="/prabhupada.png" alt="Srila Prabhupada" className="w-full h-auto block" />
+      </section>
+
+      {/* Founder Acarya Section */}
+      <section className="relative bg-[#F8F5EF] py-24 text-center px-6 lg:px-12 overflow-hidden">
+        <div className="pointer-events-none absolute inset-0 flex justify-center -top-[20%] opacity-10">
+          {/* Subtle mandala/pattern effect using radial gradient */}
+          <div className="w-[800px] h-[800px] rounded-full bg-[radial-gradient(circle_at_center,_#4A1F2D_0%,_transparent_70%)] blur-2xl mix-blend-multiply" />
+        </div>
+
+        <div className="relative z-10 max-w-4xl mx-auto flex flex-col items-center">
+          <div className="w-12 h-[1px] bg-[#2a1b22] mb-6 opacity-60" />
+          <h2 className="font-display text-4xl sm:text-[3.25rem] text-[#2a1b22] tracking-wider uppercase mb-6">
+            Founder-Acarya
+          </h2>
+          <h3 className="text-[#4A1F2D] uppercase tracking-[0.15em] mb-10 text-sm sm:text-base font-medium">
+            His Divine Grace A.C. Bhaktivedanta Swami Srila Prabhupada
+          </h3>
+
+          <div className="space-y-6 text-[#4b4246] leading-relaxed text-sm sm:text-[15px] sm:leading-[1.8] text-justify max-w-[90%]">
+            <p>
+              In 1965, at the age of sixty-nine, Srila Prabhupada traveled to New York City aboard a cargo ship. The journey was treacherous, and the elderly spiritual teacher suffered two heart attacks aboard ship. Arriving in the United States with just seven dollars in Indian rupees and his translations of sacred Sanskrit texts, Srila Prabhupada began to share the timeless wisdom of Krishna consciousness. His message of peace and goodwill resonated with many young people, some of whom came forward to become serious students of the Krishna tradition. With the help of these students, Srila Prabhupada rented a small storefront on New York’s Lower East Side to use as a temple. On July 11, 1966, he officially registered his organization in the state of New York, formally founding the International Society for Krishna Consciousness.
+            </p>
+            <p>
+              In the eleven years that followed, Srila Prabhupada circled the globe 14 times on lecture tours, bringing the teachings of Lord Krishna to thousands of people on six continents. Men and women from all backgrounds and walks of life came forward to accept his message, and with their help, Srila Prabhupada established ISKCON centers and projects throughout the world. Under his inspiration, Krishna devotees established temples, rural communities, educational institutions, and started what would become the world’s largest vegetarian food relief program. With the desire to nourish the roots of Krishna consciousness in its home, Srila Prabhupada returned to India several times, where he sparked a revival in the Vaishnava tradition. In India, he opened dozens of temples, including large centers in the holy towns of Vrindavan and Mayapur.
+            </p>
+            <p>
+              Srila Prabhupada’s most significant contributions, perhaps, are his books. He authored over 70 volumes on the Krishna tradition, which are highly respected by scholars for their authority, depth, fidelity to the tradition, and clarity. Several of his works are used as textbooks in numerous college courses. His writings have been translated into 76 languages. His most prominent works include: Bhagavad-gita As It Is, the 30-volume Srimad-Bhagavatam, and the 17-volume Sri Caitanya-caritamrita.
+            </p>
+            <p>
+              Srila Prabhupada has unlocked the secrets and sacred spiritual knowledge in the Vedic tradition and made them accessible to everyone. His "Bhagavad-Gita As It Is" is the largest selling edition of the Bhagavad-Gita in the Western world and translated in over 76 languages.
+            </p>
+          </div>
+
+          <img src="https://iskcon.london/wp-content/uploads/2024/07/SP-Signature.svg" alt="Srila Prabhupada Signature" className="h-16 sm:h-20 mt-12 mb-14" />
+
+          <button className="cursor-pointer bg-[#b4905d] hover:bg-[#a17e4d] text-white px-8 py-3.5 uppercase tracking-widest text-xs font-semibold transition-colors duration-300">
+            More About His Journey
+          </button>
+        </div>
+      </section>
+
+      {/* Sacred Literatures Section */}
+      <section className="relative bg-[#dadada] py-24 px-6 lg:px-12 text-center">
+        <div className="relative z-10 max-w-5xl mx-auto">
+          <div className="flex justify-center mb-4">
+            <svg className="w-20 h-20 text-white/50 -rotate-45" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M5 12h14" />
+              <path d="M12 5l7 7-7 7" />
+            </svg>
+          </div>
+
+          <div className="w-10 h-[1px] bg-[#2a1b22] mb-6 opacity-30 mx-auto" />
+
+          <h2 className="font-display text-4xl sm:text-[3rem] leading-tight text-[#2a1b22] tracking-wide uppercase mb-4">
+            Discover Our<br />Sacred Literatures
+          </h2>
+          <p className="text-[#4b4246] uppercase tracking-[0.1em] text-sm sm:text-base mb-16">
+            Want to know more about our books?
+          </p>
+
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+            <div className="rounded-2xl overflow-hidden shadow-xl hover:-translate-y-2 transition-transform duration-300">
+              <img src="/krsna.png" alt="Krsna The Supreme Personality of Godhead" className="w-full h-full object-cover" />
+            </div>
+            <div className="rounded-2xl overflow-hidden shadow-xl hover:-translate-y-2 transition-transform duration-300">
+              <img src="/bhagavatam.png" alt="Srimad Bhagavatam" className="w-full h-full object-cover" />
+            </div>
+            <div className="rounded-2xl overflow-hidden shadow-xl hover:-translate-y-2 transition-transform duration-300">
+              <img src="/Bhagavad_Gita.png" alt="Bhagavad Gita As It Is" className="w-full h-full object-cover" />
+            </div>
+            <div className="rounded-2xl overflow-hidden shadow-xl hover:-translate-y-2 transition-transform duration-300">
+              <img src="/noi.png" alt="The Nectar of Instruction" className="w-full h-full object-cover" />
+            </div>
+          </div>
+
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <a href="https://transcendstore.com/"><button target="_blank" className="cursor-pointer bg-white hover:bg-slate-900 text-[#b4905d] px-8 py-3.5 uppercase tracking-widest text-xs font-semibold transition-colors duration-300 shadow-sm">
+              Buy Books
+            </button></a>
+            <a href="https://bbtmedia.com/"><button target="_blank" className="cursor-pointer bg-white hover:bg-slate-900 text-[#b4905d] px-8 py-3.5 uppercase tracking-widest text-xs font-semibold transition-colors duration-300 shadow-sm">
+              Read Ebooks
+            </button></a>
+          </div>
+        </div>
+      </section>
     </main>
   );
 };

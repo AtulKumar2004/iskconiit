@@ -2,64 +2,31 @@ import { motion, useReducedMotion } from "framer-motion";
 
 const programs = [
   {
-    id: "monday-gita",
-    day: "Monday",
-    title: "Bhagavad Gita Study Circle",
-    description:
-      "Interactive discussion on Bhagavad Gita and practical spiritual wisdom for student life.",
-    time: "7:00 PM - 8:30 PM",
-    venue: "Student Activity Centre",
+    id: "sunday-youth-am",
+    day: "Sunday",
+    title: "Youth Devotee Session",
+    description: "A weekly session dedicated for serious and sincere youth devotees.",
+    time: "7:00 AM",
+    venue: "ISKCON IIT Centre",
     cta: "Join Session",
   },
   {
-    id: "wednesday-kirtan",
-    day: "Wednesday",
-    title: "Kirtan & Meditation Evening",
-    description:
-      "Experience mantra meditation, soulful kirtan, and spiritual relaxation.",
-    time: "6:30 PM - 8:00 PM",
-    venue: "Temple Hall",
-    cta: "Attend Kirtan",
-  },
-  {
-    id: "friday-satsang",
-    day: "Friday",
-    title: "Youth Satsang & Mentorship",
-    description:
-      "Open discussions, guidance, Q&A, and meaningful student association.",
-    time: "7:00 PM - 9:00 PM",
-    venue: "Community Hall",
-    cta: "Join Community",
-  },
-  {
-    id: "saturday-bhakti",
+    id: "saturday-youth-pm",
     day: "Saturday",
-    title: "Bhakti Vriksha Gathering",
-    description:
-      "Small-group spiritual discussions, reading, and devotional bonding.",
-    time: "5:30 PM - 7:00 PM",
-    venue: "Campus Hostel Common Room",
-    cta: "Explore Gathering",
+    title: "Spiritual Session for Youth",
+    description: "An enlightening spiritual session open to all youth.",
+    time: "7:00 PM",
+    venue: "ISKCON IIT Centre",
+    cta: "Attend Session",
   },
   {
-    id: "sunday-feast",
+    id: "sunday-grhastha",
     day: "Sunday",
-    title: "Sunday Love Feast",
-    description:
-      "Kirtan, Bhagavad Gita discourse, prasadam feast, and joyful association.",
-    time: "5:00 PM - 8:00 PM",
-    venue: "ISKCON IIT Bhubaneswar Centre",
-    cta: "Attend Feast",
-  },
-  {
-    id: "daily-japa",
-    day: "Daily",
-    title: "Morning Japa & Prayer",
-    description:
-      "Start the day with mantra meditation and peaceful spiritual practice.",
-    time: "6:00 AM - 7:00 AM",
-    venue: "Temple Room",
-    cta: "Join Morning Program",
+    title: "Grhastha Bhagavatam Class",
+    description: "Srimad Bhagavatam class specifically for the Grhastha community.",
+    time: "11:00 AM",
+    venue: "ISKCON IIT Centre",
+    cta: "Join Class",
   },
 ];
 

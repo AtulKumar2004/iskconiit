@@ -334,13 +334,17 @@ const Donation = () => {
               <span>100% Secure Payments via Razorpay</span>
             </div>
 
-            <div className="mt-8 text-center">
-              <p className="text-[#D4AF37] mb-2">
+            <div className="mt-8 text-center flex flex-col items-center">
+              <p className="text-[#D4AF37] mb-4 font-medium uppercase tracking-[0.1em] text-sm">
                 Alternative UPI Donation
               </p>
 
-              <p className="text-gray-300">
-                iskconiitbbsr@upi
+              <div className="bg-white p-3 rounded-2xl mb-4 shadow-[0_0_20px_rgba(212,175,55,0.15)] inline-block">
+                <img src="/qr.png" alt="UPI QR Code" className="w-32 h-32 md:w-40 md:h-40 object-contain rounded-xl" />
+              </div>
+
+              <p className="text-gray-200 font-semibold tracking-wider bg-white/5 px-6 py-3 rounded-xl border border-white/10">
+                iskconbbsr@indianbk
               </p>
             </div>
           </div>

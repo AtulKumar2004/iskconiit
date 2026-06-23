@@ -7,6 +7,7 @@ import {
   useReducedMotion,
   useTransform,
 } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const collageImages = [
   {
@@ -399,14 +400,16 @@ const ImpactCommunity = () => {
           </motion.div>
 
           <motion.div variants={itemVariants} className="mt-10">
-            <motion.button
-              type="button"
-              className="inline-flex items-center justify-center rounded-full bg-[#D4AF37] px-8 py-3 text-sm font-semibold uppercase tracking-[0.3em] text-[#4A1F2D] shadow-[0_18px_40px_-22px_rgba(212,175,55,0.8)]"
-              whileHover={reduceMotion ? {} : { scale: 1.03 }}
-              transition={{ duration: 0.3 }}
-            >
-              Become Part of the Community
-            </motion.button>
+            <Link to="/contact">
+              <motion.button
+                type="button"
+                className="w-full sm:w-auto inline-flex items-center justify-center rounded-full bg-[#D4AF37] px-8 py-3 text-sm font-semibold uppercase tracking-[0.3em] text-[#4A1F2D] shadow-[0_18px_40px_-22px_rgba(212,175,55,0.8)]"
+                whileHover={reduceMotion ? {} : { scale: 1.03 }}
+                transition={{ duration: 0.3 }}
+              >
+                Become Part of the Community
+              </motion.button>
+            </Link>
           </motion.div>
         </motion.div>
 

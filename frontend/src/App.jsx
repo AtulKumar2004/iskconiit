@@ -12,6 +12,7 @@ import VillageOutreach from "./pages/VillageOutreach";
 import Programs from "./pages/Programs.jsx";
 import Contact from "./pages/Contact.jsx";
 import PaymentSuccess from "./pages/PaymentSuccess.jsx";
+import Govindas from "./pages/Govindas.jsx";
 import { Toaster } from "sonner";
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
         <Route path="/outreach/village" element={<VillageOutreach />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/paymentsuccess" element={<PaymentSuccess />} />
+        <Route path="/govindas" element={<Govindas />} />
       </Routes>
       <Footer />
     </div>
