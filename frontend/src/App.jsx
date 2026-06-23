@@ -11,6 +11,7 @@ import FacultyOutreach from "./pages/FacultyOutreach";
 import VillageOutreach from "./pages/VillageOutreach";
 import Programs from "./pages/Programs.jsx";
 import Contact from "./pages/Contact.jsx";
+import PaymentSuccess from "./pages/PaymentSuccess.jsx";
 import { Toaster } from "sonner";
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
         <Route path="/outreach/faculty" element={<FacultyOutreach />} />
         <Route path="/outreach/village" element={<VillageOutreach />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/paymentsuccess" element={<PaymentSuccess />} />
       </Routes>
       <Footer />
     </div>

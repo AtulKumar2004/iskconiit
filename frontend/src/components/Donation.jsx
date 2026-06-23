@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios";
 import {
   Heart,
   ShieldCheck,
@@ -80,9 +81,8 @@ function FAQItem({ item }) {
         </span>
 
         <ChevronDown
-          className={`transition-transform duration-300 ${
-            open ? "rotate-180" : ""
-          }`}
+          className={`transition-transform duration-300 ${open ? "rotate-180" : ""
+            }`}
         />
       </button>
 
@@ -97,27 +97,49 @@ function FAQItem({ item }) {
 
 const Donation = () => {
   const [amount, setAmount] = useState("1000");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
 
-  const loadRazorpay = async () => {
+  const checkoutHandler = async (amount) => {
+    const baseUrl = import.meta.env.VITE_API_URL || "http://localhost:5000";
+    const { data: { order } } = await axios.post(`${baseUrl}/api/checkout`, {
+      amount,
+      name,
+      email,
+      message
+    });
+
+    const { data: { key } } = await axios.get(`${baseUrl}/api/getKey`)
+
     const options = {
-      key: "YOUR_RAZORPAY_KEY",
-      amount: Number(amount) * 100,
+      key,
+      amount: order.amount,
       currency: "INR",
       name: "ISKCON IIT Bhubaneswar",
-      description: "Donation",
-      image: "/logo.png",
-      handler: function (response) {
-        alert("Payment Successful!");
-        console.log(response);
+      description: "Test Transaction",
+      image: "https://res.cloudinary.com/dunplsngs/image/upload/v1781880595/88ef1f72-c6d3-4032-a483-0e088b71c4af_fy7haw.png",
+      order_id: order.id,
+      callback_url: `${baseUrl}/api/paymentVerification`,
+      prefill: {
+        name: "Gaurav Kumar",
+        email: "gaurav.kumar@example.com",
+        contact: "+919876543210"
+      },
+      notes: {
+        address: "Razorpay Corporate Office"
       },
       theme: {
-        color: "#D4AF37",
-      },
+        color: "#3399cc"
+      }
     };
 
     const razor = new window.Razorpay(options);
     razor.open();
-  };
+  }
+
+
+
 
   return (
     <div className="bg-[#0F0A12] text-white overflow-hidden">
@@ -142,7 +164,7 @@ const Donation = () => {
             and youth mentorship initiatives.
           </p>
 
-          <button className="bg-[#D4AF37] text-black px-8 py-4 rounded-full font-semibold hover:scale-105 transition duration-300">
+          <button onClick={() => checkoutHandler(amount)} className="bg-[#D4AF37] text-black px-8 py-4 rounded-full font-semibold hover:scale-105 transition duration-300">
             Donate Now
           </button>
         </div>
@@ -258,11 +280,10 @@ const Donation = () => {
                 <button
                   key={amt}
                   onClick={() => setAmount(amt)}
-                  className={`py-4 rounded-2xl font-semibold transition duration-300 ${
-                    amount === amt
-                      ? "bg-[#D4AF37] text-black"
-                      : "bg-white/5 border border-white/10"
-                  }`}
+                  className={`py-4 rounded-2xl font-semibold transition duration-300 ${amount === amt
+                    ? "bg-[#D4AF37] text-black"
+                    : "bg-white/5 border border-white/10"
+                    }`}
                 >
                   ₹{amt}
                 </button>
@@ -280,23 +301,29 @@ const Donation = () => {
             <input
               type="text"
               placeholder="Full Name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
               className="w-full mb-4 bg-white/5 border border-white/10 rounded-2xl px-5 py-4 outline-none focus:border-[#D4AF37]"
             />
 
             <input
               type="email"
               placeholder="Email Address"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               className="w-full mb-4 bg-white/5 border border-white/10 rounded-2xl px-5 py-4 outline-none focus:border-[#D4AF37]"
             />
 
             <textarea
               placeholder="Message"
               rows="4"
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
               className="w-full mb-6 bg-white/5 border border-white/10 rounded-2xl px-5 py-4 outline-none focus:border-[#D4AF37]"
             />
 
             <button
-              onClick={loadRazorpay}
+              onClick={() => checkoutHandler(amount)}
               className="w-full bg-[#D4AF37] text-black py-4 rounded-2xl font-semibold hover:scale-[1.02] transition duration-300"
             >
               Donate Securely
@@ -357,7 +384,7 @@ const Donation = () => {
             mentorship, and transformative outreach initiatives.
           </p>
 
-          <button className="bg-[#D4AF37] text-black px-10 py-5 rounded-full font-semibold hover:scale-105 transition duration-300">
+          <button onClick={() => checkoutHandler(amount)} className="bg-[#D4AF37] text-black px-10 py-5 rounded-full font-semibold hover:scale-105 transition duration-300">
             Donate Now
           </button>
         </div>

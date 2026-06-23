@@ -1,21 +1,12 @@
-const SankirtanaRequest = require(
-  "../models/SankirtanaRequest"
-);
+import SankirtanaRequest from "../models/SankirtanaRequest.js";
 
-exports.createRequest = async (
-  req,
-  res
-) => {
+export const createRequest = async (req, res) => {
   try {
-    const request =
-      await SankirtanaRequest.create(
-        req.body
-      );
+    const request = await SankirtanaRequest.create(req.body);
 
     res.status(201).json({
       success: true,
-      message:
-        "Thank you. Our Sankirtana team will contact you shortly.",
+      message: "Thank you. Our Sankirtana team will contact you shortly.",
       data: request,
     });
   } catch (error) {
@@ -26,15 +17,11 @@ exports.createRequest = async (
   }
 };
 
-exports.getRequests = async (
-  req,
-  res
-) => {
+export const getRequests = async (req, res) => {
   try {
-    const requests =
-      await SankirtanaRequest.find().sort({
-        createdAt: -1,
-      });
+    const requests = await SankirtanaRequest.find().sort({
+      createdAt: -1,
+    });
 
     res.status(200).json({
       success: true,
@@ -49,15 +36,9 @@ exports.getRequests = async (
   }
 };
 
-exports.deleteRequest = async (
-  req,
-  res
-) => {
+export const deleteRequest = async (req, res) => {
   try {
-    const request =
-      await SankirtanaRequest.findByIdAndDelete(
-        req.params.id
-      );
+    const request = await SankirtanaRequest.findByIdAndDelete(req.params.id);
 
     if (!request) {
       return res.status(404).json({
@@ -68,8 +49,7 @@ exports.deleteRequest = async (
 
     res.status(200).json({
       success: true,
-      message:
-        "Request deleted successfully",
+      message: "Request deleted successfully",
     });
   } catch (error) {
     res.status(500).json({

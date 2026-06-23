@@ -1,14 +1,7 @@
-const app = require("../app");
+import app from "../app.js";
+import connectDB from "../config/db.js";
 
-const connectDB = require(
-  "../config/db"
-);
-
-module.exports = async (
-  req,
-  res
-) => {
+export default async (req, res) => {
   await connectDB();
-
   return app(req, res);
 };
