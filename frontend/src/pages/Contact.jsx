@@ -29,8 +29,8 @@ const faqs = [
 
 const quickActions = [
   { title: "Join a Program", icon: Users, link: "/programs" },
-  { title: "Invite a Speaker", icon: Presentation, link: "#" },
-  { title: "Request a House Program", icon: HomeIcon, link: "#" },
+  { title: "Invite a Speaker", icon: Presentation, link: "/programs#register" },
+  { title: "Request a House Program", icon: HomeIcon, link: "/programs#register" },
   { title: "Volunteer With Us", icon: HeartHandshake, link: "#" }
 ];
 

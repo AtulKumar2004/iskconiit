@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { motion, useInView, AnimatePresence, useReducedMotion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
@@ -8,6 +9,7 @@ import {
   Users, Heart, BookOpen, Music, Home as HomeIcon, Star,
   ArrowRight, Sparkles, Quote
 } from "lucide-react";
+import ProgramRegistrationForm from "../components/ProgramRegistrationForm";
 
 import "swiper/css";
 import "swiper/css/pagination";
@@ -91,14 +93,19 @@ const programsByAudience = [
   }
 ];
 
+const dailySchedule = [
+  { event: "Mangal Arati", time: "4:30 AM - 5:00 AM" },
+  { event: "Mantra Meditation", time: "5:00 AM - 7:30 AM" },
+  { event: "Darshan & Guru Puja", time: "7:30 AM - 8:00 AM" },
+  { event: "Discussion on Srimad Bhagavatam", time: "8:00 AM - 9:00 AM" },
+  { event: "Sandhya Arati", time: "7:00 PM - 7:30 PM" },
+  { event: "Soulful Kirtan", time: "7:30 PM - 9:00 PM" },
+];
+
 const weeklySchedule = [
-  { day: "Monday", event: "Bhagavad-gita Class", time: "6:30 PM - 8:00 PM" },
-  { day: "Tuesday", event: "Bhakti Vriksha", time: "7:00 PM - 8:30 PM" },
-  { day: "Wednesday", event: "Youth Discussion", time: "6:00 PM - 7:30 PM" },
-  { day: "Thursday", event: "Faculty Satsanga", time: "6:30 PM - 8:00 PM" },
-  { day: "Friday", event: "Kirtan Night", time: "7:00 PM - 9:00 PM" },
-  { day: "Saturday", event: "Harinama", time: "5:00 PM - 7:00 PM" },
-  { day: "Sunday", event: "Sunday Feast", time: "12:00 PM - 3:00 PM" },
+  { day: "Saturday", event: "Exclusively youth spiritual session for all youth", time: "7:00 PM" },
+  { day: "Sunday", event: "Weekly session for serious and sincere youth devotees", time: "7:00 AM" },
+  { day: "Sunday", event: "Bhagavatam Class for Grhasthas", time: "11:00 AM" },
 ];
 
 const annualEvents = [
@@ -401,10 +408,34 @@ const ScheduleSection = () => (
     <div className="relative mx-auto max-w-4xl px-6 lg:px-12">
       <SectionHeader
         eyebrow="Timetable"
-        title="Common Schedule"
-        description="Join us for our regular gatherings."
+        title="Temple Schedule"
+        description="Darshan Timings: 4:30 AM to 3:00 PM & 4:00 PM to 9:30 PM"
         align="center"
       />
+      
+      <h3 className="text-2xl font-display font-semibold text-[#2a1b22] mb-6 text-center mt-4">Daily Schedule</h3>
+      <div className="rounded-3xl border border-white/60 bg-white/80 p-6 shadow-[0_20px_50px_-32px_rgba(31,23,28,0.45)] backdrop-blur-xl mb-12">
+        {dailySchedule.map((item, idx) => (
+          <motion.div
+            key={idx}
+            initial={{ opacity: 0, x: -10 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: idx * 0.05 }}
+            className={`flex flex-col sm:flex-row sm:items-center justify-between py-5 ${idx !== dailySchedule.length - 1 ? 'border-b border-gray-100' : ''}`}
+          >
+            <div className="w-full sm:w-1/2 mb-2 sm:mb-0">
+              <span className="text-lg font-display font-medium text-[#4b4246]">{item.event}</span>
+            </div>
+            <div className="flex items-center w-full sm:w-1/2 sm:justify-end text-sm text-[#4b4246]">
+              <Clock className="w-4 h-4 mr-2 text-[#D4AF37]" />
+              <span className="font-semibold">{item.time}</span>
+            </div>
+          </motion.div>
+        ))}
+      </div>
+
+      <h3 className="text-2xl font-display font-semibold text-[#2a1b22] mb-6 text-center">Weekly Schedule</h3>
       <div className="rounded-3xl border border-white/60 bg-white/80 p-6 shadow-[0_20px_50px_-32px_rgba(31,23,28,0.45)] backdrop-blur-xl">
         {weeklySchedule.map((item, idx) => (
           <motion.div
@@ -415,16 +446,16 @@ const ScheduleSection = () => (
             transition={{ delay: idx * 0.05 }}
             className={`flex flex-col sm:flex-row sm:items-center justify-between py-5 ${idx !== weeklySchedule.length - 1 ? 'border-b border-gray-100' : ''}`}
           >
-            <div className="flex items-center mb-2 sm:mb-0 w-full sm:w-1/3">
+            <div className="flex items-center mb-2 sm:mb-0 w-full sm:w-1/4">
               <Calendar className="w-5 h-5 text-[#D4AF37] mr-3" />
               <span className="text-sm font-semibold uppercase tracking-wide text-[#2a1b22]">{item.day}</span>
             </div>
-            <div className="w-full sm:w-1/3 mb-2 sm:mb-0">
+            <div className="w-full sm:w-1/2 mb-2 sm:mb-0">
               <span className="text-lg font-display font-medium text-[#4b4246]">{item.event}</span>
             </div>
-            <div className="flex items-center w-full sm:w-1/3 sm:justify-end text-sm text-[#4b4246]">
+            <div className="flex items-center w-full sm:w-1/4 sm:justify-end text-sm text-[#4b4246]">
               <Clock className="w-4 h-4 mr-2 text-[#D4AF37]" />
-              <span>{item.time}</span>
+              <span className="font-semibold">{item.time}</span>
             </div>
           </motion.div>
         ))}
@@ -697,7 +728,25 @@ const FAQSection = () => {
   );
 };
 
-// 12. Join Us
+// 12. Registration Section
+const RegistrationSection = () => (
+  <section id="register" className="relative overflow-hidden bg-[#F8F5EF] py-24">
+    <SectionOrbs />
+    <div className="relative mx-auto max-w-6xl px-6 lg:px-12 z-10">
+      <SectionHeader
+        eyebrow="Join Us"
+        title="Register For a Program"
+        description="We would be delighted to connect with you and help you begin your spiritual journey."
+        align="center"
+      />
+      <div className="mt-12">
+        <ProgramRegistrationForm />
+      </div>
+    </div>
+  </section>
+);
+
+// 13. Join Us
 const JoinUsSection = () => (
   <section id="join" className="relative overflow-hidden py-24 text-center">
     <div className="absolute inset-0 bg-[#0c1a2e]">
@@ -740,6 +789,22 @@ const FooterBanner = () => (
 );
 
 export default function Programs() {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash) {
+      setTimeout(() => {
+        const id = location.hash.replace('#', '');
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 500);
+    } else {
+      window.scrollTo(0, 0);
+    }
+  }, [location]);
+
   return (
     <div className="font-body bg-[#12070c] min-h-screen">
       <HeroSection />
@@ -752,6 +817,7 @@ export default function Programs() {
       <GallerySection />
       <TestimonialSection />
       <UpcomingSection />
+      <RegistrationSection />
       <FAQSection />
       <JoinUsSection />
       <FooterBanner />

@@ -164,7 +164,7 @@ const Donation = () => {
             and youth mentorship initiatives.
           </p>
 
-          <button onClick={() => checkoutHandler(amount)} className="bg-[#D4AF37] text-black px-8 py-4 rounded-full font-semibold hover:scale-105 transition duration-300">
+          <button onClick={() => document.getElementById('donation-form')?.scrollIntoView({ behavior: 'smooth' })} className="bg-[#D4AF37] text-black px-8 py-4 rounded-full font-semibold hover:scale-105 transition duration-300">
             Donate Now
           </button>
         </div>
@@ -242,7 +242,7 @@ const Donation = () => {
       </section>
 
       {/* DONATION FORM */}
-      <section className="py-24 px-6 bg-[#140D18]">
+      <section id="donation-form" className="py-24 px-6 bg-[#140D18]">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
           {/* LEFT */}
           <div>
@@ -388,7 +388,7 @@ const Donation = () => {
             mentorship, and transformative outreach initiatives.
           </p>
 
-          <button onClick={() => checkoutHandler(amount)} className="bg-[#D4AF37] text-black px-10 py-5 rounded-full font-semibold hover:scale-105 transition duration-300">
+          <button onClick={() => document.getElementById('donation-form')?.scrollIntoView({ behavior: 'smooth' })} className="bg-[#D4AF37] text-black px-10 py-5 rounded-full font-semibold hover:scale-105 transition duration-300">
             Donate Now
           </button>
         </div>

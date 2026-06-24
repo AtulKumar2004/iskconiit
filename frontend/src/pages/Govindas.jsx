@@ -119,7 +119,7 @@ const AboutSection = () => (
       <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="relative">
         <div className="absolute inset-0 bg-[#D4AF37]/20 transform translate-x-4 translate-y-4 rounded-3xl" />
         <img 
-          src="/prasaddistribute.png" 
+          src="/prasaddistribute.png"
           alt="Prasadam preparation" 
           className="relative z-10 w-full h-[500px] object-cover rounded-3xl shadow-2xl" 
         />

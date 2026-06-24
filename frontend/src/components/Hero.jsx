@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectFade, Pagination } from "swiper/modules";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { Link } from "react-router-dom";
 import "swiper/css";
 import "swiper/css/effect-fade";
 import "swiper/css/pagination";
@@ -13,7 +14,9 @@ const slides = [
     heading: "More Than a Campus Community",
     subtitle: "Friendship, prasadam, and soulful conversations.",
     primary: "Join Our Community",
+    primaryLink: "/contact",
     secondary: "Weekly Programs",
+    secondaryLink: "/programs",
     image:
       "/prasadameating.png",
     alt: "Students sharing a meal and laughing together",
@@ -24,7 +27,9 @@ const slides = [
     heading: "Discover Timeless Wisdom",
     subtitle: "Bhagavad Gita, spiritual literature, deep discussions.",
     primary: "Explore Philosophy",
+    primaryLink: "/about",
     secondary: "Visit Library",
+    secondaryLink: "/library",
     image:
       "/lib.png",
     alt: "Library shelves filled with books",
@@ -35,7 +40,9 @@ const slides = [
     heading: "Ancient Knowledge for Modern Life",
     subtitle: "Interactive Gita sessions, mentorship, practical wisdom.",
     primary: "Attend Classes",
+    primaryLink: "/programs",
     secondary: "Start Your Journey",
+    secondaryLink: "/contact",
     image:
       "/guidance.png",
     alt: "Teacher guiding students in a classroom",
@@ -46,7 +53,9 @@ const slides = [
     heading: "Experience the Beauty of Bhakti",
     subtitle: "Darshan, kirtan, festivals, devotional culture.",
     primary: "Explore Festivals",
+    primaryLink: "/programs",
     secondary: "Temple Programs",
+    secondaryLink: "/programs",
     image:
       "/deities.png",
     alt: "Temple architecture glowing at dusk",
@@ -57,7 +66,9 @@ const slides = [
     heading: "Chant, Connect, and Transform",
     subtitle: "Kirtan, meditation, community, inner happiness.",
     primary: "Join Kirtan",
+    primaryLink: "/programs",
     secondary: "Upcoming Events",
+    secondaryLink: "/programs",
     image: "/kirtan-2.png",
     alt: "Crowd immersed in music and lights",
   },
@@ -67,7 +78,9 @@ const slides = [
     heading: "Sacred Sound, Quiet Mind",
     subtitle: "Evening kirtan sessions that uplift and center.",
     primary: "Join Kirtan",
+    primaryLink: "/programs",
     secondary: "Upcoming Events",
+    secondaryLink: "/programs",
     image:
       "/kirtan.png",
     alt: "Kirtan gathering with devotees singing together",
@@ -188,18 +201,18 @@ const Hero = () => {
               variants={itemVariants}
               className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row"
             >
-              <button
-                type="button"
+              <Link
+                to={activeSlide.primaryLink}
                 className="inline-flex items-center justify-center rounded-full bg-[#D4AF37] px-7 py-3 text-sm font-semibold uppercase tracking-[0.25em] text-[#4A1F2D] transition hover:-translate-y-0.5 hover:shadow-[0_12px_30px_-10px_rgba(212,175,55,0.7)]"
               >
                 {activeSlide.primary}
-              </button>
-              <button
-                type="button"
+              </Link>
+              <Link
+                to={activeSlide.secondaryLink}
                 className="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/10 px-7 py-3 text-sm font-semibold uppercase tracking-[0.25em] text-white transition hover:-translate-y-0.5 hover:border-[#D4AF37]/70 hover:text-[#D4AF37]"
               >
                 {activeSlide.secondary}
-              </button>
+              </Link>
             </motion.div>
           </motion.div>
         </AnimatePresence>

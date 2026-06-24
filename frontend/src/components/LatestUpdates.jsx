@@ -23,11 +23,11 @@ const updates = [
     image: "/kirtan-2.png",
   },
   {
-    id: "janmashtami",
-    title: "Janmashtami Festival",
+    id: "centre-inauguration",
+    title: "Centre Inauguration",
     date: "Aug 26",
     description:
-      "Celebrate Krishna's appearance with kirtan, drama, and prasadam feast.",
+      "The auspicious inauguration of the ISKCON IIT BBSR centre.",
     image: "/festival.png",
   },
   {
@@ -39,11 +39,11 @@ const updates = [
     image: "/prasadam.png",
   },
   {
-    id: "youth-retreat",
-    title: "Youth Retreat",
+    id: "sankirtan-padyatra",
+    title: "Sankirtan Padyatra",
     date: "Sep 14",
     description:
-      "Weekend retreat for reflection, mentorship, and transformative learning.",
+      "Village outreach and Sankirtan Padyatra with ISKCON Bhubaneswar devotees.",
     image: "/villageoutreach.png",
   },
 ];

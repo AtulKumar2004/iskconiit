@@ -6,6 +6,7 @@ import helmet from "helmet";
 import paymentRoute from "./routes/paymentRoutes.js";
 import sankirtanaRoutes from "./routes/sankirtanaRoutes.js";
 import contactRoutes from "./routes/contactRoutes.js";
+import programRegistrationRoutes from "./routes/programRegistrationRoutes.js";
 
 const app = express();
 
@@ -18,6 +19,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use("/api/sankirtana-request", sankirtanaRoutes);
 app.use("/api/contact", contactRoutes);
+app.use("/api/program-registrations", programRegistrationRoutes);
 app.use("/api", paymentRoute);
 app.get("/api/health", (req, res) => {
   res.json({

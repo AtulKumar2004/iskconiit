@@ -336,10 +336,6 @@ const About = () => {
           </div>
 
           <img src="https://iskcon.london/wp-content/uploads/2024/07/SP-Signature.svg" alt="Srila Prabhupada Signature" className="h-16 sm:h-20 mt-12 mb-14" />
-
-          <button className="cursor-pointer bg-[#b4905d] hover:bg-[#a17e4d] text-white px-8 py-3.5 uppercase tracking-widest text-xs font-semibold transition-colors duration-300">
-            More About His Journey
-          </button>
         </div>
       </section>
 

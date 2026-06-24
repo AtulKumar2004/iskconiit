@@ -40,7 +40,7 @@ const desktopNavItems = [
     ],
   },
   { label: "Calendar", href: "#" },
-  { label: "Become a Volunteer", href: "#" },
+  { label: "Membership & Donations", href: "/donate" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];
@@ -56,10 +56,9 @@ const mobileNavItems = [
     ],
   },
   { label: "About", href: "/about" },
-  { label: "Membership & Donations", href: "/donate" },
+  { label: "Become a Volunteer", href: "#" },
   { label: "Calendar", href: "#" },
   { label: "Transparency and Accountability", href: "#" },
-  { label: "Become a Volunteer", href: "#" },
   { label: "Contact", href: "/contact" },
 ];
 

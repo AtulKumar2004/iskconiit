@@ -1,4 +1,5 @@
 import { motion, useReducedMotion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const activityCards = [
   {
@@ -6,6 +7,7 @@ const activityCards = [
     title: "Bhagavad Gita Classes",
     subtitle: "Interactive wisdom sessions for modern student life.",
     cta: "Explore Classes",
+    link: "/programs#register",
     image: "/guidance.png",
     layout: "xl:col-span-4 xl:min-h-[320px]",
   },
@@ -14,6 +16,7 @@ const activityCards = [
     title: "Kirtan & Meditation",
     subtitle: "Experience mantra meditation and spiritual energy.",
     cta: "Join Kirtan",
+    link: "/contact",
     image: "/kirtan-2.png",
     layout: "xl:col-span-4 xl:min-h-[320px]",
   },
@@ -22,6 +25,7 @@ const activityCards = [
     title: "Student Mentorship",
     subtitle: "Guidance, discussions, and meaningful friendships.",
     cta: "Meet Community",
+    link: "/contact",
     image: "/mentorship.png",
     layout: "xl:col-span-4 xl:min-h-[320px]",
   },
@@ -30,6 +34,7 @@ const activityCards = [
     title: "Festivals & Culture",
     subtitle: "Celebrate devotion, music, and vibrant traditions.",
     cta: "View Festivals",
+    link: "/programs",
     image: "/festival.png",
     layout: "xl:col-span-4 xl:min-h-[320px]",
   },
@@ -38,6 +43,7 @@ const activityCards = [
     title: "Prasadam & Community",
     subtitle: "Wholesome spiritual meals shared with love.",
     cta: "Explore Prasadam",
+    link: "/govindas",
     image: "/vegetarianmeals.png",
     layout: "xl:col-span-4 xl:min-h-[320px]",
   },
@@ -46,6 +52,7 @@ const activityCards = [
     title: "Outreach & Seva",
     subtitle: "Service initiatives, food distribution, and outreach.",
     cta: "Learn More",
+    link: "/outreach/student",
     image: "/villageoutreach.png",
     layout: "xl:col-span-4 xl:min-h-[320px]",
   },
@@ -143,13 +150,13 @@ const WhatWeDo = () => {
                   <p className="mt-1.5 text-[0.6rem] text-white/75 sm:text-sm">
                     {card.subtitle}
                   </p>
-                  <a
-                    href="#"
+                  <Link
+                    to={card.link}
                     className="mt-4 inline-flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.35em] text-[#D4AF37]"
                   >
                     {card.cta}
                     <span className="h-px w-8 bg-[#D4AF37]/80 transition-all duration-500 group-hover:w-12" />
-                  </a>
+                  </Link>
                 </div>
               </div>
             </motion.article>
