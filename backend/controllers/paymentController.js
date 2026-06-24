@@ -64,9 +64,7 @@ export const paymentVerification = async (req, res) => {
             await Payment.create(paymentData);
 
             const frontendUrl = req.query.frontendUrl || order.notes.frontendUrl || process.env.FRONTEND_URL || "http://localhost:5173";
-            res.redirect(
-                `${frontendUrl}/paymentsuccess?reference=${razorpay_payment_id}&amount=${order.amount / 100}`
-            );
+            res.redirect(303, `${frontendUrl}/paymentsuccess?reference=${razorpay_payment_id}&amount=${order.amount / 100}`);
         } else {
             res.status(400).json({
                 success: false,
