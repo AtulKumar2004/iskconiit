@@ -53,8 +53,9 @@ const SectionHeader = ({ eyebrow, title, description, align = "left", isDark = f
 const HeroSection = () => (
   <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-[#1a0b12]">
     <div className="absolute inset-0">
-      <img src="/deities.png" alt="ISKCON Deities" className="w-full h-full object-cover opacity-60" />
-      <div className="absolute inset-0 bg-gradient-to-b from-[#1a0b12]/70 via-[#1a0b12]/50 to-[#F8F5EF]" />
+      <img src="/deities.png" alt="ISKCON Deities" className="h-full w-full object-cover" />
+      <div className="absolute inset-0 bg-gradient-to-br from-[#0c1a2e]/95 via-[#1a0d12]/85 to-[#0c1a2e]/95" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(212,175,55,0.20),_transparent_55%)]" />
     </div>
     <div className="relative z-10 text-center max-w-4xl mx-auto px-6">
       <motion.p initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} className="text-xs uppercase tracking-[0.4em] text-[#D4AF37] mb-5">

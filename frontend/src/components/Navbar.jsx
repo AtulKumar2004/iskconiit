@@ -349,7 +349,7 @@ const Navbar = () => {
                       <button
                         type="button"
                         onClick={() => toggleMobileSection(item.label)}
-                        className="flex w-full items-center justify-between"
+                        className="flex w-full items-center justify-between uppercase"
                         aria-expanded={!!mobileSections[item.label]}
                       >
                         {item.label}

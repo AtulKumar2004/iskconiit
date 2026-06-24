@@ -336,12 +336,12 @@ const EventCard = ({ event }) => (
       <MapPin className="h-4 w-4" />
       {event.venue}
     </div>
-    <button
-      type="button"
+    <a
+      href="/programs#register"
       className="mt-5 inline-flex w-full items-center justify-center rounded-full border border-[#D4AF37]/60 bg-white px-5 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-[#4A1F2D] transition duration-300 hover:shadow-[0_12px_28px_-18px_rgba(212,175,55,0.7)]"
     >
       Register
-    </button>
+    </a>
   </motion.div>
 );
 

@@ -72,8 +72,8 @@ const programsByAudience = [
     image: "/mentorship.png"
   },
   {
-    category: "Faculty",
-    items: ["Discussion Forums", "Leadership Dialogues", "Home Satsangas"],
+    category: "Volunteering",
+    items: ["Event Organizing", "Prasadam Distribution", "Book Distribution", "Temple Maintenance"],
     image: "/lib.png"
   },
   {
@@ -510,10 +510,7 @@ const AnnualEventsSection = () => (
                 </div>
               </div>
               <div className="flex flex-col flex-grow p-5">
-                <p className="text-[#4b4246] text-sm mb-4 flex-grow">{event.desc}</p>
-                <button className="text-xs font-semibold uppercase tracking-[0.2em] text-[#D4AF37] hover:text-[#4A1F2D] transition-colors flex items-center mt-auto">
-                  Event Details <ChevronRight className="w-4 h-4 ml-1" />
-                </button>
+                <p className="text-[#4b4246] text-sm flex-grow">{event.desc}</p>
               </div>
             </div>
           </SwiperSlide>
@@ -787,15 +784,6 @@ const JoinUsSection = () => (
   </section>
 );
 
-// 13. Footer Banner
-const FooterBanner = () => (
-  <section className="bg-[#12070c] py-12 text-center border-t border-white/5">
-    <div className="max-w-4xl mx-auto px-4">
-      <div className="w-16 h-[1px] bg-[#D4AF37]/50 mx-auto mt-6" />
-    </div>
-  </section>
-);
-
 export default function Programs() {
   const location = useLocation();
 
@@ -828,7 +816,6 @@ export default function Programs() {
       <RegistrationSection />
       <FAQSection />
       <JoinUsSection />
-      <FooterBanner />
     </div>
   );
 }

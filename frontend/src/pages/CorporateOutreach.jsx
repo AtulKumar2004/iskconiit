@@ -511,13 +511,13 @@ const CorporateOutreach = () => {
             className="mt-10 flex flex-wrap gap-4"
           >
             <a
-              href="#contact"
+              href="/programs#register"
               className="rounded-full bg-[#D4AF37] px-6 py-3 text-xs font-semibold uppercase tracking-[0.3em] text-[#4A1F2D] transition hover:-translate-y-0.5 hover:shadow-[0_12px_30px_-10px_rgba(212,175,55,0.7)]"
             >
               Request a Corporate Program
             </a>
             <a
-              href="#partner"
+              href="/contact"
               className="rounded-full border border-white/30 bg-white/10 px-6 py-3 text-xs font-semibold uppercase tracking-[0.3em] text-white transition hover:border-[#D4AF37]/70 hover:text-[#D4AF37]"
             >
               Partner With Us
@@ -981,12 +981,12 @@ const CorporateOutreach = () => {
                   <MapPin className="h-4 w-4" />
                   {ev.venue}
                 </div>
-                <button
-                  type="button"
+                <a
+                  href="/programs#register"
                   className="mt-5 inline-flex w-full items-center justify-center rounded-full border border-[#D4AF37]/60 bg-white px-5 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-[#4A1F2D] transition duration-300 hover:shadow-[0_12px_28px_-18px_rgba(212,175,55,0.7)]"
                 >
                   Register
-                </button>
+                </a>
               </motion.div>
             ))}
           </motion.div>

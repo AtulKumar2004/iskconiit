@@ -310,7 +310,7 @@ const VillageOutreach = () => {
               Explore Our Outreach
             </a>
             <a
-              href="#support"
+              href="/programs#register"
               className="rounded-full border border-white/30 bg-white/10 px-6 py-3 text-xs font-semibold uppercase tracking-[0.3em] text-white transition hover:border-[#e67e22]/70 hover:text-[#e67e22]"
             >
               Join Seva
@@ -810,12 +810,12 @@ const VillageOutreach = () => {
                   {ev.village}
                 </div>
                 <p className="mt-4 text-sm text-[#4b4246]">{ev.details}</p>
-                <button
-                  type="button"
+                <a
+                  href="/programs#register"
                   className="mt-8 inline-flex w-full items-center justify-center rounded-full border-2 border-[#e67e22] bg-transparent px-5 py-3 text-xs font-bold uppercase tracking-[0.2em] text-[#e67e22] transition duration-300 hover:bg-[#e67e22] hover:text-white"
                 >
                   Participate
-                </button>
+                </a>
               </motion.div>
             ))}
           </motion.div>
@@ -858,7 +858,7 @@ const VillageOutreach = () => {
           </p>
           <div className="mt-10 flex flex-wrap justify-center gap-5">
             <a
-              href="#contact"
+              href="/donate"
               className="rounded-full bg-[#e67e22] px-8 py-4 text-xs font-bold uppercase tracking-[0.2em] text-white shadow-xl transition hover:-translate-y-1 hover:shadow-2xl hover:shadow-[#e67e22]/30"
             >
               Support Village Outreach
@@ -873,22 +873,7 @@ const VillageOutreach = () => {
         </div>
       </section>
 
-      {/* ━━ 15. Footer Banner ━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-      <section className="relative overflow-hidden bg-[#1e4620] py-16 text-white">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(255,255,255,0.1),_transparent_70%)]" />
-        <div className="relative mx-auto flex max-w-5xl flex-col items-center gap-6 px-6 text-center">
-          <h2 className="font-display text-2xl font-medium italic sm:text-3xl leading-relaxed">
-            "When villages flourish in spiritual culture, society flourishes in peace, unity, and happiness."
-          </h2>
-          <div className="mt-4 flex items-center gap-4 text-xs font-bold uppercase tracking-[0.3em] text-[#f1c40f]">
-            <span>Peace</span>
-            <span className="h-1 w-1 rounded-full bg-white/50" />
-            <span>Unity</span>
-            <span className="h-1 w-1 rounded-full bg-white/50" />
-            <span>Happiness</span>
-          </div>
-        </div>
-      </section>
+
     </main>
   );
 };
