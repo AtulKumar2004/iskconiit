@@ -8,6 +8,7 @@ import {
   Utensils,
   Landmark,
   ChevronDown,
+  Loader2,
 } from "lucide-react";
 
 const impactData = [
@@ -100,8 +101,11 @@ const Donation = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const checkoutHandler = async (amount) => {
+    setIsLoading(true);
+    try {
     const baseUrl = import.meta.env.VITE_API_URL || "http://localhost:5000";
     const { data: { order } } = await axios.post(`${baseUrl}/api/checkout`, {
       amount,
@@ -119,7 +123,7 @@ const Donation = () => {
       currency: "INR",
       name: "ISKCON IIT Bhubaneswar",
       description: "Donation",
-      image: "https://iskconiitbbsr.com/logo.png",
+      image: "https://res.cloudinary.com/dunplsngs/image/upload/v1781880595/88ef1f72-c6d3-4032-a483-0e088b71c4af_fy7haw.png",
       order_id: order.id,
       callback_url: `${baseUrl}/api/paymentVerification?frontendUrl=${encodeURIComponent(window.location.origin)}`,
       prefill: {
@@ -131,11 +135,23 @@ const Donation = () => {
       },
       theme: {
         color: "#3399cc"
+      },
+      modal: {
+        ondismiss: function() {
+          setIsLoading(false);
+        }
       }
     };
 
     const razor = new window.Razorpay(options);
+    razor.on('payment.failed', function (response){
+      setIsLoading(false);
+    });
     razor.open();
+    } catch (error) {
+      console.error(error);
+      setIsLoading(false);
+    }
   }
 
 
@@ -324,9 +340,17 @@ const Donation = () => {
 
             <button
               onClick={() => checkoutHandler(amount)}
-              className="w-full bg-[#D4AF37] text-black py-4 rounded-2xl font-semibold hover:scale-[1.02] transition duration-300"
+              disabled={isLoading}
+              className={`w-full bg-[#D4AF37] text-black py-4 rounded-2xl font-semibold flex justify-center items-center transition duration-300 ${isLoading ? 'opacity-70 cursor-not-allowed' : 'hover:scale-[1.02]'}`}
             >
-              Donate Securely
+              {isLoading ? (
+                <>
+                  <Loader2 className="w-5 h-5 mr-2 animate-spin" />
+                  Processing...
+                </>
+              ) : (
+                "Donate Securely"
+              )}
             </button>
 
             <div className="flex items-center justify-center gap-2 mt-6 text-gray-400">

@@ -1,42 +1,48 @@
+import React, { Suspense } from "react";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import { Route, Routes } from "react-router-dom";
-import About from "./pages/About";
-import Home from "./pages/Home";
-import Donation from "./components/Donation";
-import MediaGallery from "./pages/MediaGallery";
-import StudentOutreach from "./pages/StudentOutreach";
-import CorporateOutreach from "./pages/CorporateOutreach";
-import FacultyOutreach from "./pages/FacultyOutreach";
-import VillageOutreach from "./pages/VillageOutreach";
-import Programs from "./pages/Programs.jsx";
-import Contact from "./pages/Contact.jsx";
-import PaymentSuccess from "./pages/PaymentSuccess.jsx";
-import Govindas from "./pages/Govindas.jsx";
-import Library from "./pages/Library.jsx";
 import { Toaster } from "sonner";
+import Loader from "./components/Loader";
+
+// Lazy loaded pages
+const Home = React.lazy(() => import("./pages/Home"));
+const About = React.lazy(() => import("./pages/About"));
+const Donation = React.lazy(() => import("./components/Donation"));
+const MediaGallery = React.lazy(() => import("./pages/MediaGallery"));
+const StudentOutreach = React.lazy(() => import("./pages/StudentOutreach"));
+const CorporateOutreach = React.lazy(() => import("./pages/CorporateOutreach"));
+const FacultyOutreach = React.lazy(() => import("./pages/FacultyOutreach"));
+const VillageOutreach = React.lazy(() => import("./pages/VillageOutreach"));
+const Programs = React.lazy(() => import("./pages/Programs.jsx"));
+const Contact = React.lazy(() => import("./pages/Contact.jsx"));
+const PaymentSuccess = React.lazy(() => import("./pages/PaymentSuccess.jsx"));
+const Govindas = React.lazy(() => import("./pages/Govindas.jsx"));
+const Library = React.lazy(() => import("./pages/Library.jsx"));
 
 function App() {
   return (
     <div className="font-body">
       <Toaster position="top-center" richColors />
       <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/philosophy" element={<About />} />
-        <Route path="/media" element={<MediaGallery />} />
-        <Route path="/donate" element={<Donation />} />
-        <Route path="/programs" element={<Programs />} />
-        <Route path="/outreach/student" element={<StudentOutreach />} />
-        <Route path="/outreach/corporate" element={<CorporateOutreach />} />
-        <Route path="/outreach/faculty" element={<FacultyOutreach />} />
-        <Route path="/outreach/village" element={<VillageOutreach />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/paymentsuccess" element={<PaymentSuccess />} />
-        <Route path="/govindas" element={<Govindas />} />
-        <Route path="/library" element={<Library />} />
-      </Routes>
+      <Suspense fallback={<Loader />}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/philosophy" element={<About />} />
+          <Route path="/media" element={<MediaGallery />} />
+          <Route path="/donate" element={<Donation />} />
+          <Route path="/programs" element={<Programs />} />
+          <Route path="/outreach/student" element={<StudentOutreach />} />
+          <Route path="/outreach/corporate" element={<CorporateOutreach />} />
+          <Route path="/outreach/faculty" element={<FacultyOutreach />} />
+          <Route path="/outreach/village" element={<VillageOutreach />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/paymentsuccess" element={<PaymentSuccess />} />
+          <Route path="/govindas" element={<Govindas />} />
+          <Route path="/library" element={<Library />} />
+        </Routes>
+      </Suspense>
       <Footer />
     </div>
   );

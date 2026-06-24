@@ -282,13 +282,21 @@ const HeroSection = () => (
         className="mt-10 flex flex-wrap gap-4"
       >
         <a
-          href="#join"
+          href="#register"
+          onClick={(e) => {
+            e.preventDefault();
+            document.getElementById('register')?.scrollIntoView({ behavior: 'smooth' });
+          }}
           className="rounded-full bg-[#D4AF37] px-6 py-3 text-xs font-semibold uppercase tracking-[0.3em] text-[#4A1F2D] transition hover:-translate-y-0.5 hover:shadow-[0_12px_30px_-10px_rgba(212,175,55,0.7)]"
         >
           Join a Program
         </a>
         <a
           href="#schedule"
+          onClick={(e) => {
+            e.preventDefault();
+            document.getElementById('schedule')?.scrollIntoView({ behavior: 'smooth' });
+          }}
           className="rounded-full border border-white/30 bg-white/10 px-6 py-3 text-xs font-semibold uppercase tracking-[0.3em] text-white transition hover:border-[#D4AF37]/70 hover:text-[#D4AF37]"
         >
           View Calendar
@@ -764,12 +772,15 @@ const JoinUsSection = () => (
           Whether you are a student, faculty member, professional, parent, or spiritual seeker, there is a program designed to help you grow and connect.
         </p>
         <div className="flex flex-col sm:flex-row justify-center gap-4">
-          <button className="rounded-full bg-[#D4AF37] px-8 py-3.5 text-xs font-semibold uppercase tracking-[0.25em] text-[#4A1F2D] transition hover:-translate-y-0.5 hover:shadow-[0_12px_30px_-10px_rgba(212,175,55,0.7)]">
+          <button 
+            onClick={() => document.getElementById('register')?.scrollIntoView({ behavior: 'smooth' })}
+            className="rounded-full bg-[#D4AF37] px-8 py-3.5 text-xs font-semibold uppercase tracking-[0.25em] text-[#4A1F2D] transition hover:-translate-y-0.5 hover:shadow-[0_12px_30px_-10px_rgba(212,175,55,0.7)]"
+          >
             Join a Program
           </button>
-          <button className="rounded-full border border-white/30 bg-white/10 px-8 py-3.5 text-xs font-semibold uppercase tracking-[0.25em] text-white transition hover:border-[#D4AF37]/70 hover:text-[#D4AF37]">
+          <a href="/contact" className="rounded-full border border-white/30 bg-white/10 px-8 py-3.5 text-xs font-semibold uppercase tracking-[0.25em] text-white transition hover:border-[#D4AF37]/70 hover:text-[#D4AF37]">
             Contact Us
-          </button>
+          </a>
         </div>
       </motion.div>
     </div>
@@ -780,9 +791,6 @@ const JoinUsSection = () => (
 const FooterBanner = () => (
   <section className="bg-[#12070c] py-12 text-center border-t border-white/5">
     <div className="max-w-4xl mx-auto px-4">
-      <p className="text-xl md:text-2xl font-display text-white/90 italic">
-        "Chant, Learn, Serve, and Celebrate Together."
-      </p>
       <div className="w-16 h-[1px] bg-[#D4AF37]/50 mx-auto mt-6" />
     </div>
   </section>

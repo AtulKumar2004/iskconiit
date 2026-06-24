@@ -151,7 +151,7 @@ const ContactFormAndMap = () => {
               className="w-full bg-[#F8F5EF] border border-[#4A1F2D]/20 rounded-lg px-4 py-3 text-sm text-[#2a1b22] focus:outline-none focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37] transition-all"
               placeholder="How can we help you?"
             ></textarea>
-            {errors.message && <p className="text-red-500 text-xs mt-1">{errors.message}.message</p>}
+            {errors.message && <p className="text-red-500 text-xs mt-1">{errors.message.message}</p>}
           </div>
           <button 
             type="submit" 
