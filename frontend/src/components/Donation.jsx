@@ -107,7 +107,8 @@ const Donation = () => {
       amount,
       name,
       email,
-      message
+      message,
+      frontendUrl: window.location.origin
     });
 
     const { data: { key } } = await axios.get(`${baseUrl}/api/getKey`)
@@ -117,14 +118,13 @@ const Donation = () => {
       amount: order.amount,
       currency: "INR",
       name: "ISKCON IIT Bhubaneswar",
-      description: "Test Transaction",
-      image: "https://res.cloudinary.com/dunplsngs/image/upload/v1781880595/88ef1f72-c6d3-4032-a483-0e088b71c4af_fy7haw.png",
+      description: "Donation",
+      image: "https://iskconiitbbsr.com/logo.png",
       order_id: order.id,
-      callback_url: `${baseUrl}/api/paymentVerification`,
+      callback_url: `${baseUrl}/api/paymentVerification?frontendUrl=${encodeURIComponent(window.location.origin)}`,
       prefill: {
-        name: "Gaurav Kumar",
-        email: "gaurav.kumar@example.com",
-        contact: "+919876543210"
+        name,
+        email
       },
       notes: {
         address: "Razorpay Corporate Office"

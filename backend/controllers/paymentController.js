@@ -9,6 +9,7 @@ export const checkout = async (req, res) => {
         if (name?.trim()) notes.name = name.trim();
         if (email?.trim()) notes.email = email.trim();
         if (message?.trim()) notes.message = message.trim();
+        if (req.body.frontendUrl) notes.frontendUrl = req.body.frontendUrl;
 
         const options = {
             amount: Number(amount * 100),
@@ -62,7 +63,7 @@ export const paymentVerification = async (req, res) => {
 
             await Payment.create(paymentData);
 
-            const frontendUrl = req.query.frontendUrl || process.env.FRONTEND_URL || "http://localhost:5173";
+            const frontendUrl = req.query.frontendUrl || order.notes.frontendUrl || process.env.FRONTEND_URL || "http://localhost:5173";
             res.redirect(
                 `${frontendUrl}/paymentsuccess?reference=${razorpay_payment_id}&amount=${order.amount / 100}`
             );
