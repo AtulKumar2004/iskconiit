@@ -55,6 +55,8 @@ const mobileNavItems = [
       { label: "House Programs", href: "#" },
     ],
   },
+  { label: "Library", href: "/library" },
+  { label: "Media", href: "/media" },
   { label: "About", href: "/about" },
   { label: "Become a Volunteer", href: "#" },
   { label: "Calendar", href: "#" },

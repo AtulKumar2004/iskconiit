@@ -256,7 +256,7 @@ const MediaGallery = () => {
         <section className="relative min-h-[70vh] overflow-hidden pt-28">
           <div className="absolute inset-0">
             <img
-              src="/media/media34.png"
+              src="/media/media70.png"
               alt="ISKCON IIT Bhubaneswar devotional gathering"
               className="h-full w-full object-cover"
               loading="eager"

@@ -5,6 +5,8 @@ const quickLinks = [
   { label: "Home", href: "/" },
   { label: "Outreach", href: "/outreach/student" },
   { label: "Programs", href: "/programs" },
+  { label: "Library", href: "/library" },
+  { label: "Media", href: "/media" },
   { label: "Calendar", href: "#" },
   { label: "Become a Volunteer", href: "#" },
   { label: "About", href: "/about" },
