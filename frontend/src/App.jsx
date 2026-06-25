@@ -1,6 +1,7 @@
 import React, { Suspense } from "react";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import ScrollToTop from "./components/ScrollToTop";
 import { Route, Routes } from "react-router-dom";
 import { Toaster } from "sonner";
 import Loader from "./components/Loader";
@@ -23,6 +24,7 @@ const Library = React.lazy(() => import("./pages/Library.jsx"));
 function App() {
   return (
     <div className="font-body">
+      <ScrollToTop />
       <Toaster position="top-center" richColors />
       <Navbar />
       <Suspense fallback={<Loader />}>
