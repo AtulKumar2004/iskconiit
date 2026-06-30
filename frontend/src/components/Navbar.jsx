@@ -57,6 +57,7 @@ const mobileNavItems = [
   },
   { label: "Library", href: "/library" },
   { label: "Media", href: "/media" },
+  { label: "Membership & Donations", href: "/donate" },
   { label: "About", href: "/about" },
   { label: "Become a Volunteer", href: "#" },
   { label: "Calendar", href: "#" },
